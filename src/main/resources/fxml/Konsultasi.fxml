@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="14" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.grincare.controller.KonsultasiController"
+      maxWidth="620" style="-fx-alignment: TOP_CENTER;">
+    <padding><Insets top="24" right="36" bottom="24" left="36"/></padding>
+
+    <!-- Navigasi sementara -->
+    <HBox>
+        <Button text="← Kembali ke Kategori" onAction="#handleKembali"
+                style="-fx-font-size: 12px;"/>
+    </HBox>
+
+    <Separator/>
+
+    <!-- Judul -->
+    <Label text="Konsultasi dengan Ginny"
+           style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+    <Label text="Ceritakan keluhan gigi Anda, Ginny akan merekomendasikan layanan yang tepat."
+           style="-fx-text-fill: #555; -fx-font-size: 13px;" wrapText="true"/>
+
+    <!-- Input keluhan -->
+    <VBox spacing="6">
+        <Label text="Keluhan Anda *" style="-fx-font-weight: bold;"/>
+        <TextField fx:id="keluhanField"
+                   promptText="Contoh: Gigi saya sakit dan terasa ngilu sejak 2 hari lalu."
+                   prefWidth="560"/>
+    </VBox>
+
+    <!-- Tombol kirim + indikator loading -->
+    <HBox spacing="12" style="-fx-alignment: CENTER_LEFT;">
+        <Button fx:id="btnKirim" text="Kirim ke Ginny" onAction="#handleKirim"
+                style="-fx-font-size: 13px; -fx-padding: 8 20 8 20;
+                       -fx-background-color: #1976d2; -fx-text-fill: white;
+                       -fx-background-radius: 6; -fx-font-weight: bold;"/>
+        <Label fx:id="labelLoading" text="Sedang menganalisis..."
+               visible="false" managed="false"
+               style="-fx-text-fill: #888; -fx-font-style: italic;"/>
+    </HBox>
+
+    <!-- Pesan error validasi -->
+    <Label fx:id="labelError" text=""
+           style="-fx-text-fill: #cc0000; -fx-font-size: 12px;"/>
+
+    <!-- Panel hasil (tersembunyi sampai ada response) -->
+    <VBox fx:id="panelHasil" spacing="10" visible="false" managed="false">
+        <Separator/>
+        <Label text="Penjelasan dari Ginny:"
+               style="-fx-font-weight: bold; -fx-font-size: 14px;"/>
+        <TextArea fx:id="areaEdukasi" wrapText="true" editable="false"
+                  prefHeight="110" style="-fx-font-size: 13px;"/>
+        <Label fx:id="labelKategoriHasil"
+               style="-fx-font-size: 14px; -fx-font-weight: bold;
+                      -fx-text-fill: #2e7d32; -fx-padding: 6 10 6 10;
+                      -fx-background-color: #e8f5e9; -fx-border-color: #4caf50;
+                      -fx-border-radius: 4; -fx-background-radius: 4;"/>
+        <Button fx:id="btnLanjut" text="Lanjut Ambil Antrian →"
+                onAction="#handleLanjut"
+                style="-fx-font-size: 13px; -fx-padding: 8 20 8 20;
+                       -fx-background-color: #4caf50; -fx-text-fill: white;
+                       -fx-background-radius: 6; -fx-font-weight: bold;"/>
+    </VBox>
+</VBox>

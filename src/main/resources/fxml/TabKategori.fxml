@@ -20,6 +20,8 @@
         <Button text="+ Tambah Kategori" onAction="#handleTambah"
                 style="-fx-font-size: 13px; -fx-padding: 6 14 6 14;"/>
         <Region HBox.hgrow="ALWAYS"/>
+        <Button text="[Test] Konsultasi Ginny →" onAction="#handleNavKonsultasi"
+                style="-fx-font-size: 12px; -fx-padding: 6 14 6 14;"/>
         <Button text="[Test] Ambil Antrian →" onAction="#handleNavAmbilAntrian"
                 style="-fx-font-size: 12px; -fx-padding: 6 14 6 14;"/>
     </HBox>

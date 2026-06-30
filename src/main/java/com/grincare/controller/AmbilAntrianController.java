@@ -24,9 +24,15 @@ public class AmbilAntrianController {
 
     @FXML
     public void initialize() {
-        // Kategori sekarang dummy; nanti diisi dari hasil Chatbot AI
         labelKategori.setText("Pemeriksaan Umum");
         labelError.setText("");
+    }
+
+    /** Dipanggil oleh KonsultasiController setelah load FXML untuk meneruskan hasil AI. */
+    public void setKategoriLayanan(String kategori) {
+        if (kategori != null && !kategori.isEmpty()) {
+            labelKategori.setText(kategori);
+        }
     }
 
     @FXML

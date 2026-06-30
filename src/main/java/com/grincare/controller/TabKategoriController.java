@@ -79,6 +79,17 @@ public class TabKategoriController {
     }
 
     @FXML
+    private void handleNavKonsultasi() {
+        try {
+            Stage stage = (Stage) tabelKategori.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/Konsultasi.fxml"));
+            stage.getScene().setRoot(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void handleNavAmbilAntrian() {
         try {
             Stage stage = (Stage) tabelKategori.getScene().getWindow();
