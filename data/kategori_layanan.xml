@@ -1,96 +1,103 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <kategoriLayanan>
-                        
+                                    
+    
+    
+    
     
     
     
     
     <kategori>
-                                                
+                                                                        
+        
+        
+        
         
         
         
         
         <id>0cb99270-2a3e-4fa3-988a-ed19f4ff5041</id>
-                                                
+                                                                        
+        
+        
+        
         
         
         
         
         <nama>Pemeriksaan Umum</nama>
-                                                
+                                                                        
+        
+        
+        
         
         
         
         
         <deskripsi>Sakit gigi, berlubang, gusi bengkak, sensitif, keluhan belum jelas</deskripsi>
-                                            
+                                                                    
+    
+    
+    
     
     
     
     
     </kategori>
-                        
+                                    
+    
+    
+    
     
     
     
     
     <kategori>
-                                                
+                                                                        
+        
+        
+        
         
         
         
         
         <id>f1ebef4e-3f6c-422d-8470-4d95ebcceab8</id>
-                                                
+                                                                        
+        
+        
+        
         
         
         
         
         <nama>Scaling</nama>
-                                                
+                                                                        
+        
+        
+        
         
         
         
         
         <deskripsi>Pembersihan karang gigi</deskripsi>
-                                            
+                                                                    
     
     
     
-    
-    </kategori>
-                        
-    
-    
-    
-    
-    <kategori>
-                                                
-        
-        
-        
-        
-        <id>112b2a00-4ee6-4e32-8a16-019289acb21b</id>
-                                                
-        
-        
-        
-        
-        <nama>Kontrol</nama>
-                                                
-        
-        
-        
-        
-        <deskripsi>Kontrol behel, pasca tindakan, follow up</deskripsi>
-                                            
     
     
     
     
     </kategori>
-                        
+                                    
+    
+    
+    
+    
+    
+    
+                            
     
     
     
@@ -99,9 +106,32 @@
 
 
 
+    
+    
+    
     <kategori>
+                                
+        
+        
         <id>cf81f0c6-65e9-409f-8926-6e8920771699</id>
+                                
+        
+        
         <nama>Konsultasi Estetika</nama>
+                                
+        
+        
         <deskripsi>Whitening, veneer, konsultasi estetika gigi</deskripsi>
+                            
+    
+    
+    </kategori>
+            
+
+
+    <kategori>
+        <id>1967d6f6-e118-41f6-9cbe-edd4e846181a</id>
+        <nama>Kontrol</nama>
+        <deskripsi>Kontrol behel, pasca tindakan, follow up</deskripsi>
     </kategori>
 </kategoriLayanan>
