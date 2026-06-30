@@ -14,6 +14,11 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.time.format.DateTimeFormatter;
+import java.util.Locale;
+
 public class KonsultasiController {
 
     @FXML private TextField keluhanField;
@@ -25,6 +30,11 @@ public class KonsultasiController {
     @FXML private Label     labelKategoriHasil;
     @FXML private Button    btnLanjut;
 
+    // Header display
+    @FXML private Label labelTanggal;
+    @FXML private Label labelJam;
+    @FXML private Label labelTimestamp;
+
     private final GeminiService geminiService = new GeminiService();
     private String hasilKategori = "Pemeriksaan Umum";
 
@@ -35,6 +45,13 @@ public class KonsultasiController {
         panelHasil.setManaged(false);
         labelLoading.setVisible(false);
         labelLoading.setManaged(false);
+
+        LocalDate today = LocalDate.now();
+        DateTimeFormatter dateFmt = DateTimeFormatter.ofPattern("EEEE, d MMMM yyyy", new Locale("id", "ID"));
+        String jam = LocalTime.now().format(DateTimeFormatter.ofPattern("HH.mm"));
+        labelTanggal.setText(today.format(dateFmt));
+        labelJam.setText(jam);
+        labelTimestamp.setText(jam);
     }
 
     @FXML
@@ -121,6 +138,17 @@ public class KonsultasiController {
             Parent root = loader.load();
             AmbilAntrianController ctrl = loader.getController();
             ctrl.setKategoriLayanan(hasilKategori);
+            stage.getScene().setRoot(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void handleLewati() {
+        try {
+            Stage stage = (Stage) keluhanField.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/AmbilAntrian.fxml"));
             stage.getScene().setRoot(root);
         } catch (Exception e) {
             e.printStackTrace();
