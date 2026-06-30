@@ -87,13 +87,21 @@ public class AntrianRepository {
     }
 
     public void updateStatus(String ticketId, String statusBaru) {
+        updateFieldXml(ticketId, "status", statusBaru);
+    }
+
+    public void updateStatusKirimWA(String ticketId, String statusKirimWA) {
+        updateFieldXml(ticketId, "statusKirimWA", statusKirimWA);
+    }
+
+    private void updateFieldXml(String ticketId, String fieldName, String nilaiBar) {
         try {
             Document doc = muatDokumen();
             NodeList nodes = doc.getDocumentElement().getElementsByTagName("tiket");
             for (int i = 0; i < nodes.getLength(); i++) {
                 Element el = (Element) nodes.item(i);
                 if (ticketId.equals(teks(el, "ticketId"))) {
-                    el.getElementsByTagName("status").item(0).setTextContent(statusBaru);
+                    el.getElementsByTagName(fieldName).item(0).setTextContent(nilaiBar);
                     break;
                 }
             }

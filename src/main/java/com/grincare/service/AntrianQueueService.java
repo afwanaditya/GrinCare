@@ -12,12 +12,13 @@ import java.util.Queue;
 public class AntrianQueueService {
 
     private final AntrianRepository repo;
-    private final Queue<Antrian> antrianQueue;
+    private final WhatsAppService   waService;
+    private final Queue<Antrian>    antrianQueue;
 
     public AntrianQueueService() {
-        this.repo = new AntrianRepository();
+        this.repo       = new AntrianRepository();
+        this.waService  = new WhatsAppService();
         this.antrianQueue = new LinkedList<>();
-        // Muat antrian aktif dari repository ke in-memory queue saat service dibuat
         antrianQueue.addAll(repo.getAntrianAktif());
     }
 
@@ -65,6 +66,17 @@ public class AntrianQueueService {
         antrian.setStatusKirimWA("TIDAK_ADA");
 
         repo.tambahAntrian(antrian);
+
+        // Kirim tiket via WhatsApp jika nomor diisi
+        String noWA = antrian.getNoWhatsApp();
+        if (noWA != null && !noWA.isEmpty()) {
+            boolean terkirim = waService.kirimTiketAntrian(
+                noWA, antrian.getTicketId(), antrian.getNoAntrian(), antrian.getKategoriLayanan());
+            String statusWA = terkirim ? "TERKIRIM" : "GAGAL";
+            antrian.setStatusKirimWA(statusWA);
+            repo.updateStatusKirimWA(antrian.getTicketId(), statusWA);
+        }
+
         antrianQueue.offer(antrian);
         return antrian;
     }

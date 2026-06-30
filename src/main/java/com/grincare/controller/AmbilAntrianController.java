@@ -51,6 +51,19 @@ public class AmbilAntrianController {
 
         Antrian antrian = service.ambilAntrianBaru(nama, noWA, kategori);
 
+        String pesanWA;
+        switch (antrian.getStatusKirimWA()) {
+            case "TERKIRIM":
+                pesanWA = "\n\nTiket telah dikirim ke WhatsApp Anda.";
+                break;
+            case "GAGAL":
+                pesanWA = "\n\nGagal mengirim tiket ke WhatsApp, namun nomor antrian Anda"
+                        + " tetap berhasil: " + antrian.getNoAntrian();
+                break;
+            default:
+                pesanWA = "";
+        }
+
         Alert info = new Alert(Alert.AlertType.INFORMATION);
         info.setTitle("Antrian Berhasil Diambil");
         info.setHeaderText("Nomor Antrian: " + antrian.getNoAntrian());
@@ -59,7 +72,8 @@ public class AmbilAntrianController {
             "Nama         : " + antrian.getNama()            + "\n" +
             "Kategori     : " + antrian.getKategoriLayanan() + "\n" +
             "Status       : " + antrian.getStatus()          + "\n" +
-            "Waktu Dibuat : " + antrian.getWaktuDibuat()
+            "Waktu Dibuat : " + antrian.getWaktuDibuat()     +
+            pesanWA
         );
         info.showAndWait();
 

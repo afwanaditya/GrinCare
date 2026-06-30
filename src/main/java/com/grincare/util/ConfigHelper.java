@@ -24,4 +24,8 @@ public class ConfigHelper {
     public static String getGeminiApiKey() {
         return getProperties().getProperty("gemini.api.key", "");
     }
+
+    public static String getFonnteToken() {
+        return getProperties().getProperty("fonnte.token", "");
+    }
 }
