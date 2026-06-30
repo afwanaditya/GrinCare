@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<antrian>
+    <tiket>
+        <ticketId>TKT-20260630-001</ticketId>
+        <noAntrian>A-01</noAntrian>
+        <nama>adit</nama>
+        <noWhatsApp>0895837883</noWhatsApp>
+        <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+        <status>MENUNGGU</status>
+        <waktuDibuat>2026-06-30 18:49:50</waktuDibuat>
+        <statusKirimWA>TIDAK_ADA</statusKirimWA>
+    </tiket>
+</antrian>

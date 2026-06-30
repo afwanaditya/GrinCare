@@ -6,9 +6,12 @@ import com.grincare.repository.KategoriRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.geometry.Insets;
 import javafx.scene.Node;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
+import javafx.stage.Stage;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
@@ -73,6 +76,17 @@ public class TabKategoriController {
                 }
             }
         });
+    }
+
+    @FXML
+    private void handleNavAmbilAntrian() {
+        try {
+            Stage stage = (Stage) tabelKategori.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/AmbilAntrian.fxml"));
+            stage.getScene().setRoot(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     @FXML

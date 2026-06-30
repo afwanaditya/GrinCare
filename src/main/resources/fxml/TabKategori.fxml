@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.Button?>
@@ -15,9 +16,12 @@
         <Label text="Kategori Layanan" style="-fx-font-size: 18px; -fx-font-weight: bold;"/>
     </HBox>
 
-    <HBox>
+    <HBox spacing="8" style="-fx-alignment: CENTER_LEFT;">
         <Button text="+ Tambah Kategori" onAction="#handleTambah"
                 style="-fx-font-size: 13px; -fx-padding: 6 14 6 14;"/>
+        <Region HBox.hgrow="ALWAYS"/>
+        <Button text="[Test] Ambil Antrian →" onAction="#handleNavAmbilAntrian"
+                style="-fx-font-size: 12px; -fx-padding: 6 14 6 14;"/>
     </HBox>
 
     <TableView fx:id="tabelKategori" VBox.vgrow="ALWAYS">

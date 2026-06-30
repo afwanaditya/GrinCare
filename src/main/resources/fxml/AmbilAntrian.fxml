@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.geometry.Insets?>
+
+<VBox spacing="14" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.grincare.controller.AmbilAntrianController"
+      maxWidth="560" style="-fx-alignment: TOP_CENTER;">
+    <padding><Insets top="24" right="32" bottom="24" left="32"/></padding>
+
+    <!-- Navigasi sementara -->
+    <HBox>
+        <Button text="← Kembali ke Kategori" onAction="#handleKembali"
+                style="-fx-font-size: 12px;"/>
+    </HBox>
+
+    <Separator/>
+
+    <!-- Judul -->
+    <Label text="Ambil Nomor Antrian"
+           style="-fx-font-size: 22px; -fx-font-weight: bold;"/>
+
+    <!-- Form -->
+    <VBox spacing="6">
+        <Label text="Nama *" style="-fx-font-weight: bold;"/>
+        <TextField fx:id="namaField" promptText="Masukkan nama pasien" prefWidth="460"/>
+    </VBox>
+
+    <VBox spacing="6">
+        <Label text="Nomor WhatsApp (opsional)" style="-fx-font-weight: bold;"/>
+        <TextField fx:id="waField" promptText="Contoh: 08123456789" prefWidth="460"/>
+    </VBox>
+
+    <VBox spacing="6">
+        <Label text="Kategori Layanan" style="-fx-font-weight: bold;"/>
+        <Label fx:id="labelKategori" text="Pemeriksaan Umum"
+               style="-fx-font-size: 14px; -fx-padding: 6 10 6 10;
+                      -fx-background-color: #e8f4ea; -fx-border-color: #4caf50;
+                      -fx-border-radius: 4; -fx-background-radius: 4;"/>
+    </VBox>
+
+    <!-- Pesan error -->
+    <Label fx:id="labelError" text="" style="-fx-text-fill: #cc0000; -fx-font-size: 12px;"/>
+
+    <!-- Tombol aksi -->
+    <Button fx:id="btnAmbil" text="Konfirmasi &amp; Ambil Antrian"
+            onAction="#handleAmbilAntrian"
+            style="-fx-font-size: 14px; -fx-padding: 10 24 10 24;
+                   -fx-background-color: #4caf50; -fx-text-fill: white;
+                   -fx-background-radius: 6; -fx-font-weight: bold;"/>
+</VBox>
