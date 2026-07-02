@@ -40,6 +40,11 @@ public class KategoriRepository {
                 "Whitening, veneer, konsultasi estetika gigi");
     }
 
+    private String teks(Element parent, String tag) {
+        NodeList nl = parent.getElementsByTagName(tag);
+        return (nl.getLength() > 0 && nl.item(0) != null) ? nl.item(0).getTextContent() : "";
+    }
+
     private void buatElemen(Document doc, Element root, String id, String nama, String deskripsi) {
         Element el = doc.createElement("kategori");
         Element idEl = doc.createElement("id");
@@ -61,10 +66,7 @@ public class KategoriRepository {
             NodeList nodes = doc.getDocumentElement().getElementsByTagName("kategori");
             for (int i = 0; i < nodes.getLength(); i++) {
                 Element el = (Element) nodes.item(i);
-                String id = el.getElementsByTagName("id").item(0).getTextContent();
-                String nama = el.getElementsByTagName("nama").item(0).getTextContent();
-                String deskripsi = el.getElementsByTagName("deskripsi").item(0).getTextContent();
-                list.add(new KategoriLayanan(id, nama, deskripsi));
+                list.add(new KategoriLayanan(teks(el, "id"), teks(el, "nama"), teks(el, "deskripsi")));
             }
         } catch (Exception e) {
             e.printStackTrace();
@@ -89,9 +91,11 @@ public class KategoriRepository {
             NodeList nodes = doc.getDocumentElement().getElementsByTagName("kategori");
             for (int i = 0; i < nodes.getLength(); i++) {
                 Element el = (Element) nodes.item(i);
-                if (el.getElementsByTagName("id").item(0).getTextContent().equals(id)) {
-                    el.getElementsByTagName("nama").item(0).setTextContent(kategoriBaru.getNama());
-                    el.getElementsByTagName("deskripsi").item(0).setTextContent(kategoriBaru.getDeskripsi());
+                if (id.equals(teks(el, "id"))) {
+                    NodeList namaNodes = el.getElementsByTagName("nama");
+                    NodeList deskNodes = el.getElementsByTagName("deskripsi");
+                    if (namaNodes.getLength() > 0) namaNodes.item(0).setTextContent(kategoriBaru.getNama());
+                    if (deskNodes.getLength() > 0) deskNodes.item(0).setTextContent(kategoriBaru.getDeskripsi());
                     break;
                 }
             }
@@ -108,7 +112,7 @@ public class KategoriRepository {
             NodeList nodes = root.getElementsByTagName("kategori");
             for (int i = 0; i < nodes.getLength(); i++) {
                 Element el = (Element) nodes.item(i);
-                if (el.getElementsByTagName("id").item(0).getTextContent().equals(id)) {
+                if (id.equals(teks(el, "id"))) {
                     root.removeChild(el);
                     break;
                 }

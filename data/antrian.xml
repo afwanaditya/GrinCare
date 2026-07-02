@@ -1,199 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <antrian>
-                            
-    
-    
-    
-    
-    
-    <tiket>
-                                                        
-        
-        
-        
-        
-        
-        <ticketId>TKT-20260630-001</ticketId>
-                                                        
-        
-        
-        
-        
-        
-        <noAntrian>A-01</noAntrian>
-                                                        
-        
-        
-        
-        
-        
-        <nama>adit</nama>
-                                                        
-        
-        
-        
-        
-        
-        <noWhatsApp>0895837883</noWhatsApp>
-                                                        
-        
-        
-        
-        
-        
-        <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
-                                                        
-        
-        
-        
-        
-        
-        <status>MENUNGGU</status>
-                                                        
-        
-        
-        
-        
-        
-        <waktuDibuat>2026-06-30 18:49:50</waktuDibuat>
-                                                        
-        
-        
-        
-        
-        
-        <statusKirimWA>TIDAK_ADA</statusKirimWA>
-                                                    
-    
-    
-    
-    
-    
-    </tiket>
-                        
-    
-    
-    
-    
-    
-    <tiket>
-                                                
-        
-        
-        
-        
-        <ticketId>TKT-20260630-002</ticketId>
-                                                
-        
-        
-        
-        
-        <noAntrian>A-02</noAntrian>
-                                                
-        
-        
-        
-        
-        <nama>adit</nama>
-                                                
-        
-        
-        
-        
-        <noWhatsApp>089525238287</noWhatsApp>
-                                                
-        
-        
-        
-        
-        <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
-                                                
-        
-        
-        
-        
-        <status>MENUNGGU</status>
-                                                
-        
-        
-        
-        
-        <waktuDibuat>2026-06-30 19:38:34</waktuDibuat>
-                                                
-        
-        
-        
-        
-        <statusKirimWA>TERKIRIM</statusKirimWA>
-                                            
-    
-    
-    
-    
-    </tiket>
-                    
-
-    
-    
-    
-    <tiket>
-                                
-        
-        
-        <ticketId>TKT-20260630-003</ticketId>
-                                
-        
-        
-        <noAntrian>A-03</noAntrian>
-                                
-        
-        
-        <nama>adit</nama>
-                                
-        
-        
-        <noWhatsApp>089525238287</noWhatsApp>
-                                
-        
-        
-        <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
-                                
-        
-        
-        <status>MENUNGGU</status>
-                                
-        
-        
-        <waktuDibuat>2026-06-30 19:40:17</waktuDibuat>
-                                
-        
-        
-        <statusKirimWA>TERKIRIM</statusKirimWA>
-                            
-    
-    
-    </tiket>
-            
-
-    
-    <tiket>
-                
-        <ticketId>TKT-20260630-004</ticketId>
-                
-        <noAntrian>A-04</noAntrian>
-                
-        <nama>adit</nama>
-                
-        <noWhatsApp>089525238287</noWhatsApp>
-                
-        <kategoriLayanan>Konsultasi Estetika</kategoriLayanan>
-                
-        <status>MENUNGGU</status>
-                
-        <waktuDibuat>2026-06-30 19:41:41</waktuDibuat>
-                
-        <statusKirimWA>TERKIRIM</statusKirimWA>
-            
-    </tiket>
-    
+  <tiket>
+    <ticketId>TKT-20260702-001</ticketId>
+    <noAntrian>A-01</noAntrian>
+    <nama>adit</nama>
+    <noWhatsApp>089525238287</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-02 12:19:05</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260702-002</ticketId>
+    <noAntrian>A-02</noAntrian>
+    <nama>adit</nama>
+    <noWhatsApp>089525238287</noWhatsApp>
+    <kategoriLayanan>Konsultasi Estetika</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-02 12:20:14</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260702-003</ticketId>
+    <noAntrian>A-03</noAntrian>
+    <nama>Budi Santoso</nama>
+    <noWhatsApp>081234567890</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-02 12:20:58</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260702-004</ticketId>
+    <noAntrian>A-04</noAntrian>
+    <nama>Siti Rahayu</nama>
+    <noWhatsApp/>
+    <kategoriLayanan>Scaling</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-02 12:20:59</waktuDibuat>
+    <statusKirimWA>TIDAK_ADA</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260702-005</ticketId>
+    <noAntrian>A-05</noAntrian>
+    <nama>Andi Wijaya</nama>
+    <noWhatsApp>08987654321</noWhatsApp>
+    <kategoriLayanan>Kontrol</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-02 12:20:59</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
 </antrian>

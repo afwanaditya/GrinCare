@@ -66,12 +66,13 @@ public class WhatsAppService {
         String nomorNormal = normalisasiNomor(noWhatsApp);
         if (nomorNormal.isEmpty()) return false;
 
+        HttpURLConnection conn = null;
         try {
             String body = "{\"target\":\"" + nomorNormal + "\","
                         + "\"message\":\"" + escapeJson(pesan) + "\"}";
 
             URL url = new URL(ENDPOINT);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Authorization", token);
             conn.setRequestProperty("Content-Type", "application/json");
@@ -97,6 +98,8 @@ public class WhatsAppService {
         } catch (Exception e) {
             System.err.println("[WhatsAppService] Error: " + e.getMessage());
             return false;
+        } finally {
+            if (conn != null) conn.disconnect();
         }
     }
 

@@ -91,19 +91,24 @@ public class GeminiService {
         conn.setReadTimeout(60_000);
         conn.setDoOutput(true);
 
-        try (OutputStream os = conn.getOutputStream()) {
-            os.write(body.getBytes("UTF-8"));
-        }
+        try {
+            try (OutputStream os = conn.getOutputStream()) {
+                os.write(body.getBytes("UTF-8"));
+            }
 
-        int status = conn.getResponseCode();
-        InputStream is = (status >= 200 && status < 300) ? conn.getInputStream() : conn.getErrorStream();
-        String response = bacaStream(is);
+            int status = conn.getResponseCode();
+            InputStream is = (status >= 200 && status < 300)
+                    ? conn.getInputStream() : conn.getErrorStream();
+            String response = bacaStream(is);
 
-        if (status < 200 || status >= 300) {
-            System.err.println("[GeminiService] HTTP " + status + ": " + response);
-            return null;
+            if (status < 200 || status >= 300) {
+                System.err.println("[GeminiService] HTTP " + status + ": " + response);
+                return null;
+            }
+            return response;
+        } finally {
+            conn.disconnect();
         }
-        return response;
     }
 
     private GeminiResult parseResponse(String json) {

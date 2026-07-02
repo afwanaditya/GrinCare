@@ -101,7 +101,10 @@ public class AntrianRepository {
             for (int i = 0; i < nodes.getLength(); i++) {
                 Element el = (Element) nodes.item(i);
                 if (ticketId.equals(teks(el, "ticketId"))) {
-                    el.getElementsByTagName(fieldName).item(0).setTextContent(nilaiBar);
+                    NodeList fieldNodes = el.getElementsByTagName(fieldName);
+                    if (fieldNodes.getLength() > 0) {
+                        fieldNodes.item(0).setTextContent(nilaiBar);
+                    }
                     break;
                 }
             }
