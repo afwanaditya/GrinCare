@@ -10,9 +10,9 @@ public class MainApp extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("/fxml/TabKategori.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("/fxml/Konsultasi.fxml"));
         Scene scene = new Scene(root, 1280, 800);
-        primaryStage.setTitle("GrinCare");
+        primaryStage.setTitle("GrinCare - Sistem Manajemen Klinik Gigi");
         primaryStage.setScene(scene);
         primaryStage.show();
     }

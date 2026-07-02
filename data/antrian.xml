@@ -50,4 +50,44 @@
     <waktuDibuat>2026-07-02 12:20:59</waktuDibuat>
     <statusKirimWA>TERKIRIM</statusKirimWA>
   </tiket>
+  <tiket>
+    <ticketId>TKT-20260702-006</ticketId>
+    <noAntrian>A-06</noAntrian>
+    <nama>adit</nama>
+    <noWhatsApp>089525238287</noWhatsApp>
+    <kategoriLayanan>Konsultasi Estetika</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-02 13:41:42</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260702-007</ticketId>
+    <noAntrian>A-07</noAntrian>
+    <nama>adit</nama>
+    <noWhatsApp>089525238287</noWhatsApp>
+    <kategoriLayanan>Konsultasi Estetika</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-02 13:44:16</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260702-008</ticketId>
+    <noAntrian>A-08</noAntrian>
+    <nama>jsjsj</nama>
+    <noWhatsApp>089525238287</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-02 13:51:19</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260702-009</ticketId>
+    <noAntrian>A-09</noAntrian>
+    <nama>adit</nama>
+    <noWhatsApp>089525238287</noWhatsApp>
+    <kategoriLayanan>Konsultasi Estetika</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-02 14:02:07</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
 </antrian>

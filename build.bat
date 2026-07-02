@@ -16,7 +16,7 @@ if not exist sources.txt (
 )
 
 echo Mengkompilasi...
-"%JDK9%\javac" --add-modules javafx.controls,javafx.fxml -d "%OUT%" @sources.txt
+"%JDK9%\javac" -encoding utf-8 --add-modules javafx.controls,javafx.fxml -d "%OUT%" @sources.txt
 
 if %ERRORLEVEL% NEQ 0 (
     echo.
