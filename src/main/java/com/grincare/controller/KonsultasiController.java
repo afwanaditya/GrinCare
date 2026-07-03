@@ -213,6 +213,17 @@ public class KonsultasiController {
     }
 
     @FXML
+    private void handleLoginAdmin() {
+        try {
+            Stage stage = (Stage) keluhanField.getScene().getWindow();
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/LoginAdmin.fxml"));
+            stage.getScene().setRoot(root);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
     private void handleKembali() {
         try {
             Stage stage = (Stage) keluhanField.getScene().getWindow();

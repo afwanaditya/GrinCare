@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.Region?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<VBox xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.grincare.controller.DashboardAdminController"
+      style="-fx-background-color: #f1f5f9;"
+      prefWidth="1280" prefHeight="800">
+
+    <!-- ===== HEADER ===== -->
+    <HBox spacing="16" style="-fx-background-color: white;
+                               -fx-padding: 16 24 16 24;
+                               -fx-alignment: CENTER_LEFT;">
+        <VBox spacing="2" style="-fx-alignment: CENTER_LEFT;">
+            <Label text="GrinCare"
+                   style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+            <Label text="Panel Manajemen Klinik"
+                   style="-fx-font-size: 12px; -fx-text-fill: #94a3b8;"/>
+        </VBox>
+
+        <Region HBox.hgrow="ALWAYS"/>
+
+        <HBox spacing="12" style="-fx-alignment: CENTER_RIGHT;">
+            <Label fx:id="labelNamaAdmin"
+                   style="-fx-font-size: 13px; -fx-text-fill: #374151; -fx-font-weight: bold;"/>
+            <Button text="Logout" onAction="#handleLogout"
+                    style="-fx-background-color: white;
+                           -fx-border-color: #e2e8f0; -fx-border-radius: 20; -fx-border-width: 1;
+                           -fx-background-radius: 20;
+                           -fx-text-fill: #64748b; -fx-font-size: 12px;
+                           -fx-padding: 6 18 6 18; -fx-cursor: hand;"/>
+        </HBox>
+    </HBox>
+
+    <!-- Garis gradient biru di bawah header -->
+    <Region style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #1d4ed8, #38bdf8);
+                   -fx-min-height: 3; -fx-pref-height: 3; -fx-max-height: 3;"/>
+
+    <!-- ===== NAVIGASI TAB ===== -->
+    <HBox style="-fx-background-color: white;
+                 -fx-padding: 0 24 0 24;
+                 -fx-border-color: transparent transparent #e2e8f0 transparent;
+                 -fx-border-width: 1;">
+        <Button fx:id="btnTabAntrian" text="Antrian" onAction="#handleTabAntrian"
+                style="-fx-background-color: #2563eb; -fx-text-fill: white;
+                       -fx-font-size: 13px; -fx-font-weight: bold;
+                       -fx-padding: 14 24 14 24; -fx-cursor: hand;
+                       -fx-background-radius: 0; -fx-border-color: transparent;"/>
+        <Button fx:id="btnTabKategori" text="Kategori Layanan" onAction="#handleTabKategori"
+                style="-fx-background-color: transparent; -fx-text-fill: #64748b;
+                       -fx-font-size: 13px;
+                       -fx-padding: 14 24 14 24; -fx-cursor: hand;
+                       -fx-background-radius: 0; -fx-border-color: transparent;"/>
+        <Button fx:id="btnTabStatistik" text="Statistik" onAction="#handleTabStatistik"
+                style="-fx-background-color: transparent; -fx-text-fill: #64748b;
+                       -fx-font-size: 13px;
+                       -fx-padding: 14 24 14 24; -fx-cursor: hand;
+                       -fx-background-radius: 0; -fx-border-color: transparent;"/>
+        <Button fx:id="btnTabKeyword" text="Kelola Keyword AI" onAction="#handleTabKeyword"
+                style="-fx-background-color: transparent; -fx-text-fill: #64748b;
+                       -fx-font-size: 13px;
+                       -fx-padding: 14 24 14 24; -fx-cursor: hand;
+                       -fx-background-radius: 0; -fx-border-color: transparent;"/>
+    </HBox>
+
+    <!-- ===== KONTEN TAB ===== -->
+    <StackPane VBox.vgrow="ALWAYS" style="-fx-background-color: #f1f5f9; -fx-padding: 32;">
+
+        <!-- Tab Antrian -->
+        <VBox fx:id="panelAntrian" style="-fx-alignment: CENTER; -fx-spacing: 12;">
+            <Label text="📋" style="-fx-font-size: 48px;"/>
+            <Label text="Modul Antrian"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+            <Label text="Modul Antrian (segera hadir)"
+                   style="-fx-font-size: 14px; -fx-text-fill: #64748b;"/>
+        </VBox>
+
+        <!-- Tab Kategori Layanan -->
+        <VBox fx:id="panelKategori" visible="false" managed="false"
+              style="-fx-alignment: CENTER; -fx-spacing: 12;">
+            <Label text="🗂️" style="-fx-font-size: 48px;"/>
+            <Label text="Kategori Layanan"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+            <Label text="Modul Kategori Layanan (segera hadir)"
+                   style="-fx-font-size: 14px; -fx-text-fill: #64748b;"/>
+        </VBox>
+
+        <!-- Tab Statistik -->
+        <VBox fx:id="panelStatistik" visible="false" managed="false"
+              style="-fx-alignment: CENTER; -fx-spacing: 12;">
+            <Label text="📊" style="-fx-font-size: 48px;"/>
+            <Label text="Statistik"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+            <Label text="Modul Statistik (segera hadir)"
+                   style="-fx-font-size: 14px; -fx-text-fill: #64748b;"/>
+        </VBox>
+
+        <!-- Tab Kelola Keyword AI -->
+        <VBox fx:id="panelKeyword" visible="false" managed="false"
+              style="-fx-alignment: CENTER; -fx-spacing: 12;">
+            <Label text="🤖" style="-fx-font-size: 48px;"/>
+            <Label text="Kelola Keyword AI"
+                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+            <Label text="Modul Keyword AI (segera hadir)"
+                   style="-fx-font-size: 14px; -fx-text-fill: #64748b;"/>
+        </VBox>
+
+    </StackPane>
+
+</VBox>
