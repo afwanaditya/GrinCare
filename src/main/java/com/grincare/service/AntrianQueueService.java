@@ -11,35 +11,37 @@ import java.util.Queue;
 
 public class AntrianQueueService {
 
+    private static final String TICKET_ID_FORMAT  = "TKT-%s-%03d";
+    private static final String TICKET_PREFIX     = "TKT-";
+    private static final String NO_ANTRIAN_FORMAT = "A-%02d";
+
     private final AntrianRepository repo;
     private final WhatsAppService   waService;
     private final Queue<Antrian>    antrianQueue;
 
     public AntrianQueueService() {
-        this.repo       = new AntrianRepository();
-        this.waService  = new WhatsAppService();
+        this.repo         = new AntrianRepository();
+        this.waService    = new WhatsAppService();
         this.antrianQueue = new LinkedList<>();
         antrianQueue.addAll(repo.getAntrianAktif());
     }
 
-    // Hitung berapa tiket yang sudah dibuat hari ini (sebagai basis nomor urut)
     private int hitungAntrianHariIni() {
         String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
         return (int) repo.getSemuaAntrian().stream()
-                .filter(a -> a.getTicketId().startsWith("TKT-" + today))
+                .filter(a -> a.getTicketId().startsWith(TICKET_PREFIX + today))
                 .count();
     }
 
     private String generateTicketId(int nomor) {
         String today = LocalDate.now().format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-        return String.format("TKT-%s-%03d", today, nomor);
+        return String.format(TICKET_ID_FORMAT, today, nomor);
     }
 
     private String generateNoAntrian(int nomor) {
-        return String.format("A-%02d", nomor);
+        return String.format(NO_ANTRIAN_FORMAT, nomor);
     }
 
-    // Versi publik — dipakai jika perlu cek format dari luar tanpa menyimpan
     public String generateTicketId() {
         return generateTicketId(hitungAntrianHariIni() + 1);
     }
@@ -48,9 +50,14 @@ public class AntrianQueueService {
         return generateNoAntrian(hitungAntrianHariIni() + 1);
     }
 
-    /**
-     * Ambil nomor antrian baru: generate ID, simpan ke XML, masukkan ke queue.
-     */
+    public int getNomorBerikutnya() {
+        return hitungAntrianHariIni() + 1;
+    }
+
+    public int getJumlahAntrianAktif() {
+        return repo.getAntrianAktif().size();
+    }
+
     public Antrian ambilAntrianBaru(String nama, String noWhatsApp, String kategoriLayanan) {
         int next = hitungAntrianHariIni() + 1;
 
@@ -60,19 +67,18 @@ public class AntrianQueueService {
         antrian.setNama(nama.trim());
         antrian.setNoWhatsApp(noWhatsApp != null ? noWhatsApp.trim() : "");
         antrian.setKategoriLayanan(kategoriLayanan);
-        antrian.setStatus("MENUNGGU");
+        antrian.setStatus(Antrian.STATUS_MENUNGGU);
         antrian.setWaktuDibuat(LocalDateTime.now()
                 .format(DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss")));
-        antrian.setStatusKirimWA("TIDAK_ADA");
+        antrian.setStatusKirimWA(Antrian.WA_TIDAK_ADA);
 
         repo.tambahAntrian(antrian);
 
-        // Kirim tiket via WhatsApp jika nomor diisi
         String noWA = antrian.getNoWhatsApp();
         if (noWA != null && !noWA.isEmpty()) {
             boolean terkirim = waService.kirimTiketAntrian(
                 noWA, antrian.getTicketId(), antrian.getNoAntrian(), antrian.getKategoriLayanan());
-            String statusWA = terkirim ? "TERKIRIM" : "GAGAL";
+            String statusWA = terkirim ? Antrian.WA_TERKIRIM : Antrian.WA_GAGAL;
             antrian.setStatusKirimWA(statusWA);
             repo.updateStatusKirimWA(antrian.getTicketId(), statusWA);
         }
@@ -81,7 +87,6 @@ public class AntrianQueueService {
         return antrian;
     }
 
-    // Dipakai modul Kelola Antrian nanti
     public Queue<Antrian> getAntrianQueue() {
         return antrianQueue;
     }

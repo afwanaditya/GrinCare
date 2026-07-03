@@ -21,6 +21,8 @@ import javafx.util.Duration;
 
 public class DialogAntrian {
 
+    private static final int COUNTDOWN_DETIK = 30;
+
     public interface KonfirmasiCallback {
         void onKonfirmasi(String nama, String noWA);
     }
@@ -229,7 +231,7 @@ public class DialogAntrian {
         progressBar.setPrefHeight(6);
         progressBar.setStyle("-fx-accent: #2563eb;");
 
-        Label labelCountdown = new Label("Menutup otomatis dalam 30 detik...");
+        Label labelCountdown = new Label("Menutup otomatis dalam " + COUNTDOWN_DETIK + " detik...");
         labelCountdown.setStyle("-fx-font-size: 11px; -fx-text-fill: #94a3b8;");
 
         // Tombol pasien berikutnya
@@ -252,17 +254,17 @@ public class DialogAntrian {
         // Tampilkan dialog dulu (non-blocking), lalu mulai countdown
         dialog.show();
 
-        // Countdown 30 detik — dijalankan SETELAH dialog.show()
-        final int[] sisa = {30};
+        // Countdown — dijalankan SETELAH dialog.show()
+        final int[] sisa = {COUNTDOWN_DETIK};
         Timeline timeline = new Timeline(new KeyFrame(Duration.seconds(1), e -> {
             sisa[0]--;
             labelCountdown.setText("Menutup otomatis dalam " + sisa[0] + " detik...");
-            progressBar.setProgress((double) sisa[0] / 30.0);
+            progressBar.setProgress((double) sisa[0] / COUNTDOWN_DETIK);
             if (sisa[0] <= 0) {
                 dialog.close();
             }
         }));
-        timeline.setCycleCount(30);
+        timeline.setCycleCount(COUNTDOWN_DETIK);
 
         // setOnHidden menangkap semua cara dialog ditutup (tombol, timer, maupun X)
         dialog.setOnHidden(e -> {
