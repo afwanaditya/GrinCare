@@ -1,40 +1,33 @@
 package com.grincare.service;
 
 import com.grincare.util.ConfigHelper;
+import com.grincare.util.HttpHelper;
 
-import java.io.BufferedReader;
 import java.io.InputStream;
-import java.io.InputStreamReader;
 import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
 public class WhatsAppService {
 
-    private static final String ENDPOINT = "https://api.fonnte.com/send";
+    private static final String ENDPOINT        = "https://api.fonnte.com/send";
+    private static final int    CONNECT_TIMEOUT = 10_000;
+    private static final int    READ_TIMEOUT    = 15_000;
 
-    /**
-     * Normalisasi nomor ke format 628xx.
-     * Handles: 08xx → 628xx, +628xx → 628xx, 628xx → tetap, 8xx → 628xx
-     */
     public String normalisasiNomor(String nomor) {
         if (nomor == null || nomor.trim().isEmpty()) return "";
         nomor = nomor.trim().replaceAll("[\\s\\-]", "");
         if (nomor.startsWith("+62")) {
-            return nomor.substring(1);          // +628xx → 628xx
+            return nomor.substring(1);
         } else if (nomor.startsWith("62")) {
-            return nomor;                       // sudah 628xx
+            return nomor;
         } else if (nomor.startsWith("0")) {
-            return "62" + nomor.substring(1);   // 08xx → 628xx
+            return "62" + nomor.substring(1);
         } else {
-            return "62" + nomor;                // 8xx → 628xx
+            return "62" + nomor;
         }
     }
 
-    /**
-     * Kirim tiket antrian ke WhatsApp pasien.
-     * Return false langsung jika noWhatsApp kosong (WA opsional).
-     */
     public boolean kirimTiketAntrian(String noWhatsApp, String ticketId,
                                      String noAntrian, String kategoriLayanan) {
         if (noWhatsApp == null || noWhatsApp.trim().isEmpty()) return false;
@@ -45,9 +38,6 @@ public class WhatsAppService {
         return kirimPesan(noWhatsApp, pesan);
     }
 
-    /**
-     * Kirim notifikasi panggil — dipakai modul Kelola Antrian (Lala) saat admin klik "Panggil".
-     */
     public boolean kirimNotifikasiPanggil(String noWhatsApp, String noAntrian) {
         if (noWhatsApp == null || noWhatsApp.trim().isEmpty()) return false;
 
@@ -69,15 +59,15 @@ public class WhatsAppService {
         HttpURLConnection conn = null;
         try {
             String body = "{\"target\":\"" + nomorNormal + "\","
-                        + "\"message\":\"" + escapeJson(pesan) + "\"}";
+                        + "\"message\":\"" + HttpHelper.escapeJson(pesan) + "\"}";
 
             URL url = new URL(ENDPOINT);
             conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("POST");
             conn.setRequestProperty("Authorization", token);
             conn.setRequestProperty("Content-Type", "application/json");
-            conn.setConnectTimeout(10_000);
-            conn.setReadTimeout(15_000);
+            conn.setConnectTimeout(CONNECT_TIMEOUT);
+            conn.setReadTimeout(READ_TIMEOUT);
             conn.setDoOutput(true);
 
             try (OutputStream os = conn.getOutputStream()) {
@@ -86,12 +76,13 @@ public class WhatsAppService {
 
             int status = conn.getResponseCode();
             if (status >= 200 && status < 300) {
+                InputStream is = conn.getInputStream();
                 System.out.println("[WhatsAppService] Terkirim ke " + nomorNormal
-                        + " | " + bacaStream(conn.getInputStream()).trim());
+                        + " | " + HttpHelper.bacaStream(is).trim());
                 return true;
             } else {
                 System.err.println("[WhatsAppService] HTTP " + status
-                        + ": " + bacaStream(conn.getErrorStream()));
+                        + ": " + HttpHelper.bacaStream(conn.getErrorStream()));
                 return false;
             }
 
@@ -101,23 +92,5 @@ public class WhatsAppService {
         } finally {
             if (conn != null) conn.disconnect();
         }
-    }
-
-    private String escapeJson(String s) {
-        return s.replace("\\", "\\\\")
-                .replace("\"", "\\\"")
-                .replace("\n", "\\n")
-                .replace("\r", "\\r")
-                .replace("\t", "\\t");
-    }
-
-    private String bacaStream(InputStream is) throws Exception {
-        if (is == null) return "";
-        StringBuilder sb = new StringBuilder();
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(is, "UTF-8"))) {
-            String line;
-            while ((line = br.readLine()) != null) sb.append(line).append("\n");
-        }
-        return sb.toString();
     }
 }

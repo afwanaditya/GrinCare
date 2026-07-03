@@ -53,10 +53,10 @@ public class AmbilAntrianController {
 
         String pesanWA;
         switch (antrian.getStatusKirimWA()) {
-            case "TERKIRIM":
+            case Antrian.WA_TERKIRIM:
                 pesanWA = "\n\nTiket telah dikirim ke WhatsApp Anda.";
                 break;
-            case "GAGAL":
+            case Antrian.WA_GAGAL:
                 pesanWA = "\n\nGagal mengirim tiket ke WhatsApp, namun nomor antrian Anda"
                         + " tetap berhasil: " + antrian.getNoAntrian();
                 break;

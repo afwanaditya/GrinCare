@@ -1,6 +1,17 @@
 package com.grincare.model;
 
 public class Antrian {
+
+    // Status antrian
+    public static final String STATUS_MENUNGGU  = "MENUNGGU";
+    public static final String STATUS_DIPANGGIL = "DIPANGGIL";
+    public static final String STATUS_SELESAI   = "SELESAI";
+
+    // Status pengiriman WhatsApp
+    public static final String WA_TERKIRIM  = "TERKIRIM";
+    public static final String WA_GAGAL     = "GAGAL";
+    public static final String WA_TIDAK_ADA = "TIDAK_ADA";
+
     private String ticketId;
     private String noAntrian;
     private String nama;

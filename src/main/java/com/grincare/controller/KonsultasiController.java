@@ -1,7 +1,6 @@
 package com.grincare.controller;
 
 import com.grincare.model.Antrian;
-import com.grincare.repository.AntrianRepository;
 import com.grincare.service.AntrianQueueService;
 import com.grincare.service.GeminiService;
 import com.grincare.service.GeminiService.GeminiResult;
@@ -76,14 +75,9 @@ public class KonsultasiController {
 
     private void refreshSidebarAntrian() {
         try {
-            AntrianRepository repo = new AntrianRepository();
-            LocalDate today = LocalDate.now();
-            String todayKey = today.format(DateTimeFormatter.ofPattern("yyyyMMdd"));
-            long hitungHariIni = repo.getSemuaAntrian().stream()
-                    .filter(a -> a.getTicketId().startsWith("TKT-" + todayKey))
-                    .count();
-            labelNomorAntrian.setText(String.valueOf(hitungHariIni + 1));
-            labelJumlahAntrian.setText(String.valueOf(repo.getAntrianAktif().size()));
+            AntrianQueueService service = new AntrianQueueService();
+            labelNomorAntrian.setText(String.valueOf(service.getNomorBerikutnya()));
+            labelJumlahAntrian.setText(String.valueOf(service.getJumlahAntrianAktif()));
         } catch (Exception e) {
             labelNomorAntrian.setText("—");
             labelJumlahAntrian.setText("—");

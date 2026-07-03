@@ -64,7 +64,8 @@ public class AntrianRepository {
 
     public List<Antrian> getAntrianAktif() {
         return getSemuaAntrian().stream()
-                .filter(a -> "MENUNGGU".equals(a.getStatus()) || "DIPANGGIL".equals(a.getStatus()))
+                .filter(a -> Antrian.STATUS_MENUNGGU.equals(a.getStatus())
+                          || Antrian.STATUS_DIPANGGIL.equals(a.getStatus()))
                 .collect(Collectors.toList());
     }
 
@@ -94,7 +95,7 @@ public class AntrianRepository {
         updateFieldXml(ticketId, "statusKirimWA", statusKirimWA);
     }
 
-    private void updateFieldXml(String ticketId, String fieldName, String nilaiBar) {
+    private void updateFieldXml(String ticketId, String fieldName, String nilaiBaru) {
         try {
             Document doc = muatDokumen();
             NodeList nodes = doc.getDocumentElement().getElementsByTagName("tiket");
@@ -103,7 +104,7 @@ public class AntrianRepository {
                 if (ticketId.equals(teks(el, "ticketId"))) {
                     NodeList fieldNodes = el.getElementsByTagName(fieldName);
                     if (fieldNodes.getLength() > 0) {
-                        fieldNodes.item(0).setTextContent(nilaiBar);
+                        fieldNodes.item(0).setTextContent(nilaiBaru);
                     }
                     break;
                 }
