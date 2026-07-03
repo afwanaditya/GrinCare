@@ -200,4 +200,14 @@
     <waktuDibuat>2026-07-03 19:02:10</waktuDibuat>
     <statusKirimWA>TERKIRIM</statusKirimWA>
   </tiket>
+  <tiket>
+    <ticketId>TKT-20260703-012</ticketId>
+    <noAntrian>A-12</noAntrian>
+    <nama>aldi</nama>
+    <noWhatsApp>082134534003</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-03 23:05:30</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
 </antrian>
