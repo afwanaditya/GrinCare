@@ -86,7 +86,7 @@ public class AmbilAntrianController {
     private void handleKembali() {
         try {
             Stage stage = (Stage) namaField.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/TabKategori.fxml"));
+            Parent root = FXMLLoader.load(getClass().getResource("/fxml/Konsultasi.fxml"));
             stage.getScene().setRoot(root);
         } catch (Exception e) {
             e.printStackTrace();

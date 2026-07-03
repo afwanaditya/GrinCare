@@ -36,12 +36,7 @@
     <!-- Garis gradient biru di bawah header -->
     <Region style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #1d4ed8, #38bdf8);                    -fx-min-height: 3; -fx-pref-height: 3; -fx-max-height: 3;" />
 
-    <!-- Link kembali (kecil, subtle) -->
-    <HBox style="-fx-padding: 8 24 0 24;">
-        <Button onAction="#handleKembali" style="-fx-background-color: transparent; -fx-border-color: transparent;                        -fx-text-fill: #94a3b8; -fx-font-size: 11px;                        -fx-padding: 0; -fx-cursor: hand;" text="← Kembali ke Kategori" />
-    </HBox>
-
-    <!-- ===== KONTEN UTAMA (2 kolom) ===== -->
+<!-- ===== KONTEN UTAMA (2 kolom) ===== -->
     <HBox spacing="16" style="-fx-padding: 10 24 20 24; -fx-alignment: TOP_LEFT;" VBox.vgrow="ALWAYS">
 
         <!-- ========== KOLOM KIRI: CHAT CARD ========== -->

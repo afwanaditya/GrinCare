@@ -223,14 +223,4 @@ public class KonsultasiController {
         }
     }
 
-    @FXML
-    private void handleKembali() {
-        try {
-            Stage stage = (Stage) keluhanField.getScene().getWindow();
-            Parent root = FXMLLoader.load(getClass().getResource("/fxml/TabKategori.fxml"));
-            stage.getScene().setRoot(root);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    }
 }

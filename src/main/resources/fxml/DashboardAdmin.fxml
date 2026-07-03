@@ -80,13 +80,8 @@
         </VBox>
 
         <!-- Tab Kategori Layanan -->
-        <VBox fx:id="panelKategori" visible="false" managed="false"
-              style="-fx-alignment: CENTER; -fx-spacing: 12;">
-            <Label text="🗂️" style="-fx-font-size: 48px;"/>
-            <Label text="Kategori Layanan"
-                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
-            <Label text="Modul Kategori Layanan (segera hadir)"
-                   style="-fx-font-size: 14px; -fx-text-fill: #64748b;"/>
+        <VBox fx:id="panelKategori" visible="false" managed="false">
+            <fx:include source="TabKategori.fxml" VBox.vgrow="ALWAYS"/>
         </VBox>
 
         <!-- Tab Statistik -->
