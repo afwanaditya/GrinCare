@@ -71,12 +71,8 @@
     <StackPane VBox.vgrow="ALWAYS" style="-fx-background-color: #f1f5f9; -fx-padding: 32;">
 
         <!-- Tab Antrian -->
-        <VBox fx:id="panelAntrian" style="-fx-alignment: CENTER; -fx-spacing: 12;">
-            <Label text="📋" style="-fx-font-size: 48px;"/>
-            <Label text="Modul Antrian"
-                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
-            <Label text="Modul Antrian (segera hadir)"
-                   style="-fx-font-size: 14px; -fx-text-fill: #64748b;"/>
+        <VBox fx:id="panelAntrian">
+            <fx:include source="TabAntrian.fxml" VBox.vgrow="ALWAYS"/>
         </VBox>
 
         <!-- Tab Kategori Layanan -->

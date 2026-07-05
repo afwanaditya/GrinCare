@@ -6,7 +6,7 @@
     <nama>adit</nama>
     <noWhatsApp>089525238287</noWhatsApp>
     <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
-    <status>MENUNGGU</status>
+    <status>DIPANGGIL</status>
     <waktuDibuat>2026-07-02 12:19:05</waktuDibuat>
     <statusKirimWA>TERKIRIM</statusKirimWA>
   </tiket>
@@ -208,6 +208,36 @@
     <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
     <status>MENUNGGU</status>
     <waktuDibuat>2026-07-03 23:05:30</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260705-001</ticketId>
+    <noAntrian>A-01</noAntrian>
+    <nama>alien</nama>
+    <noWhatsApp>082174422559</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>DIPANGGIL</status>
+    <waktuDibuat>2026-07-05 21:31:12</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260705-002</ticketId>
+    <noAntrian>A-02</noAntrian>
+    <nama>Wan Yuli</nama>
+    <noWhatsApp>08126881750</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-05 21:32:50</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260705-003</ticketId>
+    <noAntrian>A-03</noAntrian>
+    <nama>Wan Yuli</nama>
+    <noWhatsApp>08126881750</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>DIPANGGIL</status>
+    <waktuDibuat>2026-07-05 21:34:17</waktuDibuat>
     <statusKirimWA>TERKIRIM</statusKirimWA>
   </tiket>
 </antrian>
