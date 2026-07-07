@@ -91,13 +91,8 @@
         </VBox>
 
         <!-- Tab Kelola Keyword AI -->
-        <VBox fx:id="panelKeyword" visible="false" managed="false"
-              style="-fx-alignment: CENTER; -fx-spacing: 12;">
-            <Label text="🤖" style="-fx-font-size: 48px;"/>
-            <Label text="Kelola Keyword AI"
-                   style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
-            <Label text="Modul Keyword AI (segera hadir)"
-                   style="-fx-font-size: 14px; -fx-text-fill: #64748b;"/>
+        <VBox fx:id="panelKeyword" visible="false" managed="false">
+            <fx:include source="TabKeyword.fxml" VBox.vgrow="ALWAYS"/>
         </VBox>
 
     </StackPane>

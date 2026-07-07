@@ -2,6 +2,8 @@ package com.grincare.controller;
 
 import com.grincare.model.KategoriLayanan;
 import com.grincare.repository.KategoriRepository;
+import com.grincare.repository.AntrianRepository;
+import com.grincare.model.Antrian;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -12,8 +14,16 @@ import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.chart.BarChart;
+import javafx.scene.chart.CategoryAxis;
+import javafx.scene.chart.NumberAxis;
+import javafx.scene.chart.XYChart;
+
 import java.util.Optional;
 import java.util.UUID;
+import java.util.List;
+import java.util.Map;
+import java.util.HashMap;
 
 public class TabKategoriController {
 
@@ -21,6 +31,10 @@ public class TabKategoriController {
     @FXML private TableColumn<KategoriLayanan, String> colNama;
     @FXML private TableColumn<KategoriLayanan, String> colDeskripsi;
     @FXML private TableColumn<KategoriLayanan, Void> colAksi;
+
+    @FXML private BarChart<String, Number> chartKategori;
+    @FXML private CategoryAxis xAxis;
+    @FXML private NumberAxis yAxis;
 
     private final KategoriRepository repo = new KategoriRepository();
     private final ObservableList<KategoriLayanan> data = FXCollections.observableArrayList();
@@ -36,6 +50,34 @@ public class TabKategoriController {
     private void muatData() {
         data.setAll(repo.getSemuaKategori());
         tabelKategori.setItems(data);
+        perbaruiChart();
+    }
+
+    private void perbaruiChart() {
+        if (chartKategori == null) return;
+        chartKategori.getData().clear();
+
+        AntrianRepository antrianRepo = new AntrianRepository();
+        List<Antrian> semuaAntrian = antrianRepo.getSemuaAntrian();
+
+        Map<String, Integer> counts = new HashMap<>();
+        for (KategoriLayanan k : data) {
+            counts.put(k.getNama(), 0);
+        }
+
+        for (Antrian a : semuaAntrian) {
+            String kat = a.getKategoriLayanan();
+            if (counts.containsKey(kat)) {
+                counts.put(kat, counts.get(kat) + 1);
+            }
+        }
+
+        XYChart.Series<String, Number> series = new XYChart.Series<>();
+        for (KategoriLayanan k : data) {
+            series.getData().add(new XYChart.Data<>(k.getNama(), counts.getOrDefault(k.getNama(), 0)));
+        }
+
+        chartKategori.getData().add(series);
     }
 
     private void setupKolomAksi() {

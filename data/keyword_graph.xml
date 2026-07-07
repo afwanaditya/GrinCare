@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<keywordGraph>
+  <edge>
+    <id>9ea2c9fa-b9cc-4aee-8522-72a0ea82b282</id>
+    <source>sakit</source>
+    <target>Pemeriksaan Umum</target>
+    <weight>5</weight>
+  </edge>
+  <edge>
+    <id>3a97c9dd-1059-458e-81c6-98d1b118b282</id>
+    <source>lubang</source>
+    <target>Pemeriksaan Umum</target>
+    <weight>7</weight>
+  </edge>
+  <edge>
+    <id>bf7baad7-2cf9-42dc-95fa-2573e2cdcf20</id>
+    <source>bengkak</source>
+    <target>Pemeriksaan Umum</target>
+    <weight>7</weight>
+  </edge>
+  <edge>
+    <id>a0f0de7b-ac97-4623-9602-d1f9e4e39ddc</id>
+    <source>sensitif</source>
+    <target>Pemeriksaan Umum</target>
+    <weight>5</weight>
+  </edge>
+  <edge>
+    <id>9a5d70dc-84f5-45b6-9a1c-d3f4c21a828c</id>
+    <source>nyeri</source>
+    <target>Pemeriksaan Umum</target>
+    <weight>6</weight>
+  </edge>
+  <edge>
+    <id>0f8b8f7c-e5de-4953-9029-0af186fd2433</id>
+    <source>ngilu</source>
+    <target>Pemeriksaan Umum</target>
+    <weight>5</weight>
+  </edge>
+  <edge>
+    <id>571f1325-226d-4fcc-b6ed-fbc4130aef86</id>
+    <source>karang</source>
+    <target>Scaling</target>
+    <weight>10</weight>
+  </edge>
+  <edge>
+    <id>97ae7c42-281c-4ecc-8733-5c966a195106</id>
+    <source>tartar</source>
+    <target>Scaling</target>
+    <weight>8</weight>
+  </edge>
+  <edge>
+    <id>49336f1d-b7de-443b-a87f-a519703d30fb</id>
+    <source>bau</source>
+    <target>Scaling</target>
+    <weight>5</weight>
+  </edge>
+  <edge>
+    <id>94969be7-e5dc-4b9e-8256-804f114dee9f</id>
+    <source>behel</source>
+    <target>Kontrol</target>
+    <weight>10</weight>
+  </edge>
+  <edge>
+    <id>36ebba86-5f87-41dc-88b2-46f524c3b319</id>
+    <source>kawat</source>
+    <target>Kontrol</target>
+    <weight>8</weight>
+  </edge>
+  <edge>
+    <id>241d904a-2e71-4466-b8f8-7ba2af161de9</id>
+    <source>whitening</source>
+    <target>Konsultasi Estetika</target>
+    <weight>10</weight>
+  </edge>
+  <edge>
+    <id>63b98da4-addb-405a-9bcb-efb90dcce143</id>
+    <source>veneer</source>
+    <target>Konsultasi Estetika</target>
+    <weight>10</weight>
+  </edge>
+  <edge>
+    <id>ee0e4335-8d0e-4407-9cc3-e77d4a22ea27</id>
+    <source>putih</source>
+    <target>Konsultasi Estetika</target>
+    <weight>6</weight>
+  </edge>
+</keywordGraph>

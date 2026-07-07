@@ -4,6 +4,7 @@ import com.grincare.model.Antrian;
 import com.grincare.service.AntrianQueueService;
 import com.grincare.service.GeminiService;
 import com.grincare.service.GeminiService.GeminiResult;
+import com.grincare.util.KeywordGraph;
 
 import javafx.animation.FadeTransition;
 import javafx.concurrent.Task;
@@ -136,12 +137,21 @@ public class KonsultasiController {
     }
 
     private void tampilkanPesanGagal() {
-        hasilKategori = "Pemeriksaan Umum";
-        areaEdukasi.setText("AI sedang tidak dapat diakses, sistem menggunakan mode cadangan.\n" +
-                            "Silakan lanjutkan dengan kategori default, atau coba lagi nanti.");
-        labelKategoriHasil.setText("Rekomendasi layanan: Pemeriksaan Umum (mode cadangan)");
+        String keluhan = keluhanField.getText().trim();
+        String rekomendasi = KeywordGraph.analisisOffline(keluhan);
+        hasilKategori = rekomendasi;
+
+        areaEdukasi.setText("Ginny AI sedang tidak dapat diakses (Mode Offline).\n" +
+                            "Sistem telah menganalisis keluhan Anda secara mandiri menggunakan pencocokan kata kunci cadangan.\n\n" +
+                            "Keluhan Anda: \"" + keluhan + "\"\n" +
+                            "Rekomendasi layanan yang paling sesuai: " + rekomendasi + ".\n\n" +
+                            "Silakan klik 'Ambil Nomor Antrian' di bawah untuk melanjutkan.");
+
+        labelKategoriHasil.setText("Rekomendasi layanan: " + hasilKategori + " (Mode Cadangan/Offline)");
         panelHasil.setVisible(true);
         panelHasil.setManaged(true);
+        btnLanjut.setDisable(false);
+        btnLanjut.setStyle(STYLE_BTN_AKTIF);
     }
 
     private void setLoading(boolean loading) {
