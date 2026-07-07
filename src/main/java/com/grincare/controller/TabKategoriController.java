@@ -22,8 +22,6 @@ import javafx.scene.chart.XYChart;
 import java.util.Optional;
 import java.util.UUID;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 
 public class TabKategoriController {
 
@@ -60,21 +58,22 @@ public class TabKategoriController {
         AntrianRepository antrianRepo = new AntrianRepository();
         List<Antrian> semuaAntrian = antrianRepo.getSemuaAntrian();
 
-        Map<String, Integer> counts = new HashMap<>();
-        for (KategoriLayanan k : data) {
-            counts.put(k.getNama(), 0);
-        }
+        // Menggunakan Larik (Array 1D biasa) untuk menghitung pasien per kategori
+        int[] counts = new int[data.size()];
 
         for (Antrian a : semuaAntrian) {
             String kat = a.getKategoriLayanan();
-            if (counts.containsKey(kat)) {
-                counts.put(kat, counts.get(kat) + 1);
+            for (int i = 0; i < data.size(); i++) {
+                if (data.get(i).getNama().equalsIgnoreCase(kat)) {
+                    counts[i]++;
+                    break;
+                }
             }
         }
 
         XYChart.Series<String, Number> series = new XYChart.Series<>();
-        for (KategoriLayanan k : data) {
-            series.getData().add(new XYChart.Data<>(k.getNama(), counts.getOrDefault(k.getNama(), 0)));
+        for (int i = 0; i < data.size(); i++) {
+            series.getData().add(new XYChart.Data<>(data.get(i).getNama(), counts[i]));
         }
 
         chartKategori.getData().add(series);

@@ -250,4 +250,34 @@
     <waktuDibuat>2026-07-07 21:06:54</waktuDibuat>
     <statusKirimWA>TIDAK_ADA</statusKirimWA>
   </tiket>
+  <tiket>
+    <ticketId>TKT-20260707-002</ticketId>
+    <noAntrian>A-02</noAntrian>
+    <nama>dani</nama>
+    <noWhatsApp/>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-07 21:13:53</waktuDibuat>
+    <statusKirimWA>TIDAK_ADA</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260707-003</ticketId>
+    <noAntrian>A-03</noAntrian>
+    <nama>QAW</nama>
+    <noWhatsApp>312</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-07 21:17:47</waktuDibuat>
+    <statusKirimWA>GAGAL</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260707-004</ticketId>
+    <noAntrian>A-04</noAntrian>
+    <nama>DAWDAW</nama>
+    <noWhatsApp>23412</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-07 21:18:49</waktuDibuat>
+    <statusKirimWA>GAGAL</statusKirimWA>
+  </tiket>
 </antrian>

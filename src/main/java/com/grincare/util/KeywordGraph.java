@@ -1,16 +1,17 @@
 package com.grincare.util;
 
 import com.grincare.model.GraphEdge;
+import com.grincare.model.KategoriLayanan;
 import com.grincare.repository.GraphRepository;
+import com.grincare.repository.KategoriRepository;
 import java.util.List;
-import java.util.Map;
-import java.util.HashMap;
 
 public class KeywordGraph {
 
     /**
      * Menganalisis keluhan pasien secara offline.
-     * Menggunakan representasi Graf berupa Edge List (Daftar Sisi) yang sangat sederhana.
+     * Menggunakan representasi Graf berupa Daftar Sisi (List of Edges) yang disimpan dalam ArrayList,
+     * serta Larik (Array 1D) untuk akumulasi skor kategori agar selaras dengan materi kuliah.
      */
     public static String analisisOffline(String keluhan) {
         if (keluhan == null || keluhan.trim().isEmpty()) {
@@ -21,13 +22,18 @@ public class KeywordGraph {
         String cleanKeluhan = keluhan.toLowerCase().replaceAll("[^a-z0-9\\s]", " ");
         String[] tokens = cleanKeluhan.split("\\s+");
 
-        // 2. Muat semua relasi sisi graf (edges) dari file XML
-        GraphRepository repo = new GraphRepository();
-        List<GraphEdge> edges = repo.getSemuaEdge();
+        // 2. Muat semua kategori layanan (ArrayList)
+        KategoriRepository katRepo = new KategoriRepository();
+        List<KategoriLayanan> semuaKategori = katRepo.getSemuaKategori();
 
-        // 3. Akumulasikan bobot untuk setiap kategori yang cocok
-        Map<String, Integer> skorKategori = new HashMap<>();
+        // 3. Buat Larik (Array biasa) untuk menyimpan akumulasi skor masing-masing kategori
+        int[] skor = new int[semuaKategori.size()];
 
+        // 4. Muat semua relasi sisi graf (edges) dari file XML
+        GraphRepository graphRepo = new GraphRepository();
+        List<GraphEdge> edges = graphRepo.getSemuaEdge();
+
+        // 5. Akumulasikan bobot untuk setiap kategori yang cocok
         for (String kata : tokens) {
             kata = kata.trim();
             if (kata.isEmpty()) continue;
@@ -38,23 +44,29 @@ public class KeywordGraph {
                     String kategoriTarget = edge.getTarget();
                     int bobot = edge.getWeight();
                     
-                    // Tambahkan bobot ke skor kategori target tersebut
-                    skorKategori.put(kategoriTarget, skorKategori.getOrDefault(kategoriTarget, 0) + bobot);
+                    // Cari indeks kategori target tersebut di dalam daftar semuaKategori
+                    for (int i = 0; i < semuaKategori.size(); i++) {
+                        if (semuaKategori.get(i).getNama().equalsIgnoreCase(kategoriTarget)) {
+                            skor[i] += bobot; // Tambahkan bobot ke larik skor
+                            break;
+                        }
+                    }
                 }
             }
         }
 
-        // 4. Tentukan kategori dengan skor akumulasi bobot tertinggi
+        // 6. Cari kategori dengan skor tertinggi menggunakan Linear Search pada Larik
         String kategoriTerbaik = "Pemeriksaan Umum";
-        int skorTertinggi = -1;
+        int skorTertinggi = 0;
 
-        for (Map.Entry<String, Integer> entry : skorKategori.entrySet()) {
-            if (entry.getValue() > skorTertinggi) {
-                skorTertinggi = entry.getValue();
-                kategoriTerbaik = entry.getKey();
+        for (int i = 0; i < semuaKategori.size(); i++) {
+            if (skor[i] > skorTertinggi) {
+                skorTertinggi = skor[i];
+                kategoriTerbaik = semuaKategori.get(i).getNama();
             }
         }
 
         return kategoriTerbaik;
     }
 }
+
