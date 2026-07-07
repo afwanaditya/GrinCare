@@ -240,4 +240,14 @@
     <waktuDibuat>2026-07-05 21:34:17</waktuDibuat>
     <statusKirimWA>TERKIRIM</statusKirimWA>
   </tiket>
+  <tiket>
+    <ticketId>TKT-20260707-001</ticketId>
+    <noAntrian>A-01</noAntrian>
+    <nama>Dani</nama>
+    <noWhatsApp/>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-07 21:06:54</waktuDibuat>
+    <statusKirimWA>TIDAK_ADA</statusKirimWA>
+  </tiket>
 </antrian>
