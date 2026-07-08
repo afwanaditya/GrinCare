@@ -280,4 +280,24 @@
     <waktuDibuat>2026-07-07 21:18:49</waktuDibuat>
     <statusKirimWA>GAGAL</statusKirimWA>
   </tiket>
+  <tiket>
+    <ticketId>TKT-20260707-005</ticketId>
+    <noAntrian>A-05</noAntrian>
+    <nama>dani</nama>
+    <noWhatsApp/>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-07 21:37:31</waktuDibuat>
+    <statusKirimWA>TIDAK_ADA</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260707-006</ticketId>
+    <noAntrian>A-06</noAntrian>
+    <nama>wow</nama>
+    <noWhatsApp/>
+    <kategoriLayanan>Scaling</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-07 21:39:04</waktuDibuat>
+    <statusKirimWA>TIDAK_ADA</statusKirimWA>
+  </tiket>
 </antrian>

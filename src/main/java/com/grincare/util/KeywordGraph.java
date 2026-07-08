@@ -18,18 +18,18 @@ public class KeywordGraph {
             return "Pemeriksaan Umum";
         }
 
-        // 1. Pecah keluhan pasien menjadi kata-kata (token)
+        // 1. Pecah keluhan pasien menjadi kata-kata lalu memasukkannya ke token
         String cleanKeluhan = keluhan.toLowerCase().replaceAll("[^a-z0-9\\s]", " ");
         String[] tokens = cleanKeluhan.split("\\s+");
 
-        // 2. Muat semua kategori layanan (ArrayList)
+        // 2. Muat semua kategori layanan yang tersedia (ArrayList)
         KategoriRepository katRepo = new KategoriRepository();
         List<KategoriLayanan> semuaKategori = katRepo.getSemuaKategori();
 
-        // 3. Buat Larik (Array biasa) untuk menyimpan akumulasi skor masing-masing kategori
+        // 3. Buat Larik untuk menyimpan akumulasi bobot masing-masing kategori
         int[] skor = new int[semuaKategori.size()];
 
-        // 4. Muat semua relasi sisi graf (edges) dari file XML
+        // 4. Muat semua relasi sisi graf dari file XML
         GraphRepository graphRepo = new GraphRepository();
         List<GraphEdge> edges = graphRepo.getSemuaEdge();
 
