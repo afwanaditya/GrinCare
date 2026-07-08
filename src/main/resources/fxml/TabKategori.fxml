@@ -7,9 +7,6 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.geometry.Insets?>
-<?import javafx.scene.chart.BarChart?>
-<?import javafx.scene.chart.CategoryAxis?>
-<?import javafx.scene.chart.NumberAxis?>
 
 <VBox spacing="16" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.grincare.controller.TabKategoriController">
@@ -29,48 +26,21 @@
                        -fx-padding: 8 20 8 20; -fx-cursor: hand;"/>
     </HBox>
 
-    <!-- Container untuk Tabel dan Grafik (Side-by-Side) -->
-    <HBox spacing="16" VBox.vgrow="ALWAYS">
+    <!-- Card putih berisi tabel -->
+    <VBox VBox.vgrow="ALWAYS"
+          style="-fx-background-color: white;
+                 -fx-background-radius: 12;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 2);">
 
-        <!-- Card putih berisi tabel (Kiri) -->
-        <VBox HBox.hgrow="ALWAYS"
-              style="-fx-background-color: white;
-                     -fx-background-radius: 12;
-                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 2);">
-
-            <TableView fx:id="tabelKategori" VBox.vgrow="ALWAYS" fixedCellSize="48">
-                <columns>
-                    <TableColumn fx:id="colNama"      text="Nama"     prefWidth="180" minWidth="120"/>
-                    <TableColumn fx:id="colDeskripsi" text="Deskripsi" prefWidth="400" minWidth="180"/>
-                    <TableColumn fx:id="colAksi"      text="Aksi"     prefWidth="160" minWidth="160" maxWidth="160"/>
-                </columns>
-                <placeholder>
-                    <Label text="Belum ada data kategori."/>
-                </placeholder>
-            </TableView>
-        </VBox>
-
-        <!-- Card putih berisi grafik (Kanan) -->
-        <VBox prefWidth="420" minWidth="300" spacing="12"
-              style="-fx-background-color: white;
-                     -fx-background-radius: 12;
-                     -fx-padding: 16;
-                     -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 2);
-                     -fx-alignment: TOP_CENTER;">
-
-            <Label text="Grafik Distribusi Pasien" 
-                   style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
-
-            <BarChart fx:id="chartKategori" legendVisible="false" VBox.vgrow="ALWAYS"
-                      style="-fx-font-size: 11px;">
-                <xAxis>
-                    <CategoryAxis fx:id="xAxis" label="Kategori Layanan"/>
-                </xAxis>
-                <yAxis>
-                    <NumberAxis fx:id="yAxis" label="Jumlah Pasien" tickUnit="1.0" minorTickCount="0"/>
-                </yAxis>
-            </BarChart>
-        </VBox>
-
-    </HBox>
+        <TableView fx:id="tabelKategori" VBox.vgrow="ALWAYS" fixedCellSize="48">
+            <columns>
+                <TableColumn fx:id="colNama"      text="Nama"     prefWidth="180" minWidth="120"/>
+                <TableColumn fx:id="colDeskripsi" text="Deskripsi" prefWidth="400" minWidth="180"/>
+                <TableColumn fx:id="colAksi"      text="Aksi"     prefWidth="160" minWidth="160" maxWidth="160"/>
+            </columns>
+            <placeholder>
+                <Label text="Belum ada data kategori."/>
+            </placeholder>
+        </TableView>
+    </VBox>
 </VBox>
