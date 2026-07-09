@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<rekapHarian>
+  <rekap>
+    <tanggal>2026-07-09</tanggal>
+    <jumlahPemeriksaanUmum>4</jumlahPemeriksaanUmum>
+    <jumlahScaling>1</jumlahScaling>
+    <jumlahKontrol>1</jumlahKontrol>
+    <jumlahKonsultasiEstetika>1</jumlahKonsultasiEstetika>
+    <jumlahSelesai>7</jumlahSelesai>
+    <jumlahMenunggu>0</jumlahMenunggu>
+  </rekap>
+</rekapHarian>

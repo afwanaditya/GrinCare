@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.chart.LineChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+
+<VBox spacing="16" xmlns:fx="http://javafx.com/fxml/1"
+      fx:controller="com.grincare.controller.TabStatistikController">
+
+    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+
+    <!-- Card 1: Tren jumlah pasien selesai per hari -->
+    <VBox spacing="12" VBox.vgrow="ALWAYS"
+          style="-fx-background-color: white;
+                 -fx-background-radius: 12;
+                 -fx-padding: 16;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 2);">
+
+        <Label text="Tren Jumlah Pasien Selesai per Hari"
+               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+
+        <LineChart fx:id="chartTrenSelesai" legendVisible="false" VBox.vgrow="ALWAYS"
+                  style="-fx-font-size: 11px;">
+            <xAxis>
+                <CategoryAxis fx:id="xAxisTren" label="Tanggal"/>
+            </xAxis>
+            <yAxis>
+                <NumberAxis fx:id="yAxisTren" label="Jumlah Pasien Selesai" tickUnit="1.0" minorTickCount="0"/>
+            </yAxis>
+        </LineChart>
+    </VBox>
+
+    <!-- Card 2: Distribusi kategori layanan hari ini -->
+    <VBox spacing="12" VBox.vgrow="ALWAYS"
+          style="-fx-background-color: white;
+                 -fx-background-radius: 12;
+                 -fx-padding: 16;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 2);">
+
+        <Label text="Distribusi Kategori Layanan Hari Ini"
+               style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #1e293b;"/>
+
+        <PieChart fx:id="pieChartKategori" VBox.vgrow="ALWAYS"
+                  style="-fx-font-size: 11px;"/>
+    </VBox>
+
+</VBox>
