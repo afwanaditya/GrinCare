@@ -1,7 +1,9 @@
 package com.grincare.controller;
 
 import com.grincare.model.GraphEdge;
+import com.grincare.model.KategoriLayanan;
 import com.grincare.repository.GraphRepository;
+import com.grincare.repository.KategoriRepository;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
@@ -120,9 +122,15 @@ public class TabKeywordController {
         sourceField.setPromptText("Kata kunci asal (misal: nyeri, tartar)");
         sourceField.setPrefWidth(300);
 
-        TextField targetField = new TextField();
-        targetField.setPromptText("Simpul tujuan (kategori/keyword lain)");
-        targetField.setPrefWidth(300);
+        ComboBox<String> targetCombo = new ComboBox<>();
+        targetCombo.setPromptText("Pilih simpul tujuan (kategori)");
+        targetCombo.setPrefWidth(300);
+
+        // Muat daftar kategori dari KategoriRepository
+        KategoriRepository katRepo = new KategoriRepository();
+        for (KategoriLayanan kat : katRepo.getSemuaKategori()) {
+            targetCombo.getItems().add(kat.getNama());
+        }
 
         TextField weightField = new TextField();
         weightField.setPromptText("Bobot hubungan (1-100)");
@@ -130,10 +138,13 @@ public class TabKeywordController {
 
         if (existing != null) {
             sourceField.setText(existing.getSource());
-            targetField.setText(existing.getTarget());
+            targetCombo.setValue(existing.getTarget());
             weightField.setText(String.valueOf(existing.getWeight()));
         } else {
             weightField.setText("5"); // default weight
+            if (!targetCombo.getItems().isEmpty()) {
+                targetCombo.getSelectionModel().selectFirst();
+            }
         }
 
         GridPane grid = new GridPane();
@@ -143,7 +154,7 @@ public class TabKeywordController {
         grid.add(new Label("Kata Kunci Asal:"), 0, 0);
         grid.add(sourceField, 1, 0);
         grid.add(new Label("Tujuan (Target):"), 0, 1);
-        grid.add(targetField, 1, 1);
+        grid.add(targetCombo, 1, 1);
         grid.add(new Label("Bobot (1-100):"), 0, 2);
         grid.add(weightField, 1, 2);
         dialog.getDialogPane().setContent(grid);
@@ -153,7 +164,7 @@ public class TabKeywordController {
         // Form validation listener
         Runnable validasiForm = () -> {
             String src = sourceField.getText().trim();
-            String tgt = targetField.getText().trim();
+            String tgt = targetCombo.getValue() != null ? targetCombo.getValue().trim() : "";
             String wStr = weightField.getText().trim();
             
             boolean valid = !src.isEmpty() && !tgt.isEmpty();
@@ -169,7 +180,7 @@ public class TabKeywordController {
         };
 
         sourceField.textProperty().addListener((obs, old, val) -> validasiForm.run());
-        targetField.textProperty().addListener((obs, old, val) -> validasiForm.run());
+        targetCombo.valueProperty().addListener((obs, old, val) -> validasiForm.run());
         weightField.textProperty().addListener((obs, old, val) -> validasiForm.run());
 
         // Jalankan validasi awal
@@ -180,7 +191,7 @@ public class TabKeywordController {
                 GraphEdge edge = new GraphEdge();
                 edge.setId(existing != null ? existing.getId() : "");
                 edge.setSource(sourceField.getText().trim());
-                edge.setTarget(targetField.getText().trim());
+                edge.setTarget(targetCombo.getValue() != null ? targetCombo.getValue().trim() : "");
                 int weight = 5;
                 try {
                     weight = Integer.parseInt(weightField.getText().trim());

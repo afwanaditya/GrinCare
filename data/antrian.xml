@@ -170,7 +170,6 @@
     <waktuDibuat>2026-07-05 21:32:50</waktuDibuat>
     <statusKirimWA>TERKIRIM</statusKirimWA>
   </tiket>
-<<<<<<< HEAD
   <tiket>
     <ticketId>TKT-20260705-003</ticketId>
     <noAntrian>A-03</noAntrian>
@@ -241,6 +240,4 @@
     <waktuDibuat>2026-07-07 21:39:04</waktuDibuat>
     <statusKirimWA>TIDAK_ADA</statusKirimWA>
   </tiket>
-=======
->>>>>>> lala
 </antrian>

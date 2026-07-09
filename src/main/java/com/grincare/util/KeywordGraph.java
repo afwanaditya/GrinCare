@@ -7,12 +7,6 @@ import com.grincare.repository.KategoriRepository;
 import java.util.List;
 
 public class KeywordGraph {
-
-    /**
-     * Menganalisis keluhan pasien secara offline.
-     * Menggunakan representasi Graf berupa Daftar Sisi (List of Edges) yang disimpan dalam ArrayList,
-     * serta Larik (Array 1D) untuk akumulasi skor kategori agar selaras dengan materi kuliah.
-     */
     public static String analisisOffline(String keluhan) {
         if (keluhan == null || keluhan.trim().isEmpty()) {
             return "Pemeriksaan Umum";
