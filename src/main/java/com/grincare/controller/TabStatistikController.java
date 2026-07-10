@@ -1,7 +1,6 @@
 package com.grincare.controller;
 
 import com.grincare.model.RekapHarian;
-import com.grincare.repository.AntrianRepository;
 import com.grincare.repository.RekapRepository;
 
 import javafx.animation.Animation;
@@ -15,7 +14,6 @@ import javafx.scene.chart.LineChart;
 import javafx.scene.chart.NumberAxis;
 import javafx.scene.chart.PieChart;
 import javafx.scene.chart.XYChart;
-import javafx.scene.control.Label;
 import javafx.util.Duration;
 
 import java.util.Comparator;
@@ -28,12 +26,7 @@ public class TabStatistikController {
 
     @FXML private PieChart pieChartKategori;
 
-    @FXML private Label labelSelesaiHariIni;
-    @FXML private Label labelMenungguHariIni;
-    @FXML private Label labelSelesaiTotal;
-
     private final RekapRepository repo = new RekapRepository();
-    private final AntrianRepository antrianRepo = new AntrianRepository();
 
     private String snapshotTrenTerakhir = null;
     private String snapshotKategoriTerakhir = null;
@@ -61,15 +54,6 @@ public class TabStatistikController {
         List<RekapHarian> semuaRekap = repo.getSemuaRekap();
         semuaRekap.sort(Comparator.comparing(RekapHarian::getTanggal));
 
-        // Hitung total selesai sepanjang waktu
-        int totalSelesaiAllTime = 0;
-        for (RekapHarian r : semuaRekap) {
-            totalSelesaiAllTime += r.getJumlahSelesai();
-        }
-        if (labelSelesaiTotal != null) {
-            labelSelesaiTotal.setText(String.valueOf(totalSelesaiAllTime));
-        }
-
         StringBuilder sb = new StringBuilder();
         for (RekapHarian r : semuaRekap) {
             sb.append(r.getTanggal()).append('=').append(r.getJumlahSelesai()).append(';');
@@ -96,14 +80,6 @@ public class TabStatistikController {
         int scaling  = hariIni.getJumlahScaling();
         int kontrol  = hariIni.getJumlahKontrol();
         int estetika = hariIni.getJumlahKonsultasiEstetika();
-
-        if (labelSelesaiHariIni != null) {
-            labelSelesaiHariIni.setText(String.valueOf(hariIni.getJumlahSelesai()));
-        }
-        if (labelMenungguHariIni != null) {
-            int antrianAktifCount = antrianRepo.getAntrianAktif().size();
-            labelMenungguHariIni.setText(String.valueOf(antrianAktifCount));
-        }
 
         String snapshot = umum + "," + scaling + "," + kontrol + "," + estetika;
         if (snapshot.equals(snapshotKategoriTerakhir)) return; // data belum berubah, jangan render ulang

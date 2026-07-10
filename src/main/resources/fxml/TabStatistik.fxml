@@ -2,7 +2,6 @@
 <?import java.lang.String?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
-<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.Region?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
@@ -10,7 +9,6 @@
 <?import javafx.scene.chart.CategoryAxis?>
 <?import javafx.scene.chart.NumberAxis?>
 <?import javafx.scene.chart.PieChart?>
-<?import javafx.scene.shape.SVGPath?>
 
 <VBox spacing="24" xmlns:fx="http://javafx.com/fxml/1"
       fx:controller="com.grincare.controller.TabStatistikController">
@@ -27,46 +25,7 @@
         <Label text="Analisis kunjungan pasien dan distribusi layanan" style="-fx-font-size: 12px; -fx-text-fill: #94a3b8;" />
     </VBox>
 
-    <!-- ===== TOP ROW: SUMMARY CARDS ===== -->
-    <HBox spacing="20">
-        <!-- Card 1: Selesai Hari Ini -->
-        <HBox spacing="16" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS"
-              style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 2);">
-            <StackPane style="-fx-background-color: #e8f9f2; -fx-background-radius: 12; -fx-min-width: 48; -fx-min-height: 48; -fx-pref-width: 48; -fx-pref-height: 48; -fx-alignment: CENTER;">
-                <SVGPath content="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" fill="transparent" stroke="#10b981" strokeWidth="2" strokeLineCap="ROUND" strokeLineJoin="ROUND"/>
-            </StackPane>
-            <VBox spacing="4">
-                <Label text="Pasien Selesai (Hari Ini)" style="-fx-font-size: 13px; -fx-text-fill: #64748b; -fx-font-weight: bold;" />
-                <Label fx:id="labelSelesaiHariIni" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
-            </VBox>
-        </HBox>
-
-        <!-- Card 2: Menunggu Hari Ini -->
-        <HBox spacing="16" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS"
-              style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 2);">
-            <StackPane style="-fx-background-color: #eff6ff; -fx-background-radius: 12; -fx-min-width: 48; -fx-min-height: 48; -fx-pref-width: 48; -fx-pref-height: 48; -fx-alignment: CENTER;">
-                <SVGPath content="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" fill="transparent" stroke="#3b82f6" strokeWidth="2" strokeLineCap="ROUND" strokeLineJoin="ROUND"/>
-            </StackPane>
-            <VBox spacing="4">
-                <Label text="Pasien Menunggu (Antrian)" style="-fx-font-size: 13px; -fx-text-fill: #64748b; -fx-font-weight: bold;" />
-                <Label fx:id="labelMenungguHariIni" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
-            </VBox>
-        </HBox>
-
-        <!-- Card 3: Total Pasien Selesai (All-time) -->
-        <HBox spacing="16" alignment="CENTER_LEFT" HBox.hgrow="ALWAYS"
-              style="-fx-background-color: white; -fx-background-radius: 12; -fx-padding: 20; -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 2);">
-            <StackPane style="-fx-background-color: #fef3c7; -fx-background-radius: 12; -fx-min-width: 48; -fx-min-height: 48; -fx-pref-width: 48; -fx-pref-height: 48; -fx-alignment: CENTER;">
-                <SVGPath content="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" fill="transparent" stroke="#d97706" strokeWidth="2" strokeLineCap="ROUND" strokeLineJoin="ROUND"/>
-            </StackPane>
-            <VBox spacing="4">
-                <Label text="Total Pasien Selesai" style="-fx-font-size: 13px; -fx-text-fill: #64748b; -fx-font-weight: bold;" />
-                <Label fx:id="labelSelesaiTotal" text="0" style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
-            </VBox>
-        </HBox>
-    </HBox>
-
-    <!-- ===== BOTTOM ROW: CHARTS SIDE-BY-SIDE ===== -->
+    <!-- ===== CHARTS SIDE-BY-SIDE ===== -->
     <HBox spacing="20" VBox.vgrow="ALWAYS">
         <!-- Chart 1: Tren Selesai -->
         <VBox spacing="12" HBox.hgrow="ALWAYS"
