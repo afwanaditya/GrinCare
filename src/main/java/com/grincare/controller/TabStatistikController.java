@@ -1,6 +1,7 @@
 package com.grincare.controller;
 
 import com.grincare.model.RekapHarian;
+import com.grincare.repository.AntrianRepository;
 import com.grincare.repository.RekapRepository;
 
 import javafx.animation.Animation;
@@ -32,6 +33,7 @@ public class TabStatistikController {
     @FXML private Label labelSelesaiTotal;
 
     private final RekapRepository repo = new RekapRepository();
+    private final AntrianRepository antrianRepo = new AntrianRepository();
 
     private String snapshotTrenTerakhir = null;
     private String snapshotKategoriTerakhir = null;
@@ -99,7 +101,8 @@ public class TabStatistikController {
             labelSelesaiHariIni.setText(String.valueOf(hariIni.getJumlahSelesai()));
         }
         if (labelMenungguHariIni != null) {
-            labelMenungguHariIni.setText(String.valueOf(hariIni.getJumlahMenunggu()));
+            int antrianAktifCount = antrianRepo.getAntrianAktif().size();
+            labelMenungguHariIni.setText(String.valueOf(antrianAktifCount));
         }
 
         String snapshot = umum + "," + scaling + "," + kontrol + "," + estetika;

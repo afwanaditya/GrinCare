@@ -9,4 +9,13 @@
     <jumlahSelesai>7</jumlahSelesai>
     <jumlahMenunggu>0</jumlahMenunggu>
   </rekap>
+  <rekap>
+    <tanggal>2026-07-10</tanggal>
+    <jumlahPemeriksaanUmum>3</jumlahPemeriksaanUmum>
+    <jumlahScaling>0</jumlahScaling>
+    <jumlahKontrol>0</jumlahKontrol>
+    <jumlahKonsultasiEstetika>4</jumlahKonsultasiEstetika>
+    <jumlahSelesai>7</jumlahSelesai>
+    <jumlahMenunggu>0</jumlahMenunggu>
+  </rekap>
 </rekapHarian>
