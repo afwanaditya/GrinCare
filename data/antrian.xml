@@ -240,4 +240,14 @@
     <waktuDibuat>2026-07-07 21:39:04</waktuDibuat>
     <statusKirimWA>TIDAK_ADA</statusKirimWA>
   </tiket>
+  <tiket>
+    <ticketId>TKT-20260710-001</ticketId>
+    <noAntrian>A-01</noAntrian>
+    <nama>Dani</nama>
+    <noWhatsApp>21312321</noWhatsApp>
+    <kategoriLayanan>Scaling</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-10 22:27:03</waktuDibuat>
+    <statusKirimWA>GAGAL</statusKirimWA>
+  </tiket>
 </antrian>
