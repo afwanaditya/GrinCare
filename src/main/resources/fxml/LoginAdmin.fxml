@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.shape.SVGPath?>
 
 <AnchorPane xmlns:fx="http://javafx.com/fxml/1"
             fx:controller="com.grincare.controller.LoginAdminController"
@@ -34,11 +35,11 @@
                 <!-- Ikon gembok dalam lingkaran -->
                 <HBox alignment="CENTER">
                     <HBox alignment="CENTER"
-                          style="-fx-background-color: #f1f5f9;
+                          style="-fx-background-color: #e8eeff;
                                  -fx-background-radius: 28;
                                  -fx-min-width: 56; -fx-min-height: 56;
                                  -fx-pref-width: 56; -fx-pref-height: 56;">
-                        <Label text="🔐" style="-fx-font-size: 26px;"/>
+                        <SVGPath content="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25z" fill="transparent" stroke="#0077cc" strokeWidth="2" strokeLineCap="ROUND" strokeLineJoin="ROUND"/>
                     </HBox>
                 </HBox>
 
@@ -70,9 +71,9 @@
                              -fx-background-radius: 8;
                              -fx-border-color: #e2e8f0;
                              -fx-border-radius: 8; -fx-border-width: 1;">
-                    <Label text="👤"
-                           style="-fx-font-size: 15px; -fx-padding: 0 8 0 14;
-                                  -fx-text-fill: #94a3b8;"/>
+                    <VBox alignment="CENTER" style="-fx-padding: 0 8 0 14;">
+                        <SVGPath content="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0zM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632z" fill="transparent" stroke="#94a3b8" strokeWidth="1.5" strokeLineCap="ROUND" strokeLineJoin="ROUND"/>
+                    </VBox>
                     <TextField fx:id="txtUsername" HBox.hgrow="ALWAYS"
                                promptText="Masukkan username..."
                                style="-fx-background-color: transparent;
@@ -92,9 +93,9 @@
                              -fx-background-radius: 8;
                              -fx-border-color: #e2e8f0;
                              -fx-border-radius: 8; -fx-border-width: 1;">
-                    <Label text="🔒"
-                           style="-fx-font-size: 15px; -fx-padding: 0 8 0 14;
-                                  -fx-text-fill: #94a3b8;"/>
+                    <VBox alignment="CENTER" style="-fx-padding: 0 8 0 14;">
+                        <SVGPath content="M16.5 10.5V6.75a4.5 4.5 0 1 0-9 0v3.75m-.75 11.25h10.5a2.25 2.25 0 0 0 2.25-2.25v-6.75a2.25 2.25 0 0 0-2.25-2.25H6.75a2.25 2.25 0 0 0-2.25 2.25v6.75a2.25 2.25 0 0 0 2.25 2.25z" fill="transparent" stroke="#94a3b8" strokeWidth="1.5" strokeLineCap="ROUND" strokeLineJoin="ROUND"/>
+                    </VBox>
                     <PasswordField fx:id="txtPassword" HBox.hgrow="ALWAYS"
                                    promptText="Masukkan password..."
                                    style="-fx-background-color: transparent;
@@ -106,12 +107,15 @@
                                style="-fx-background-color: transparent;
                                       -fx-border-color: transparent;
                                       -fx-padding: 0 4 0 4; -fx-font-size: 13px;"/>
-                    <Button fx:id="btnTogglePassword" text="👁"
+                    <Button fx:id="btnTogglePassword"
                             onAction="#onTogglePassword"
                             style="-fx-background-color: transparent;
                                    -fx-border-color: transparent;
-                                   -fx-text-fill: #94a3b8; -fx-font-size: 14px;
-                                   -fx-padding: 0 14 0 6; -fx-cursor: hand;"/>
+                                   -fx-padding: 0 14 0 6; -fx-cursor: hand;">
+                        <graphic>
+                            <SVGPath content="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.431 0 .639C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178z M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" fill="transparent" stroke="#0077cc" strokeWidth="1.5" strokeLineCap="ROUND" strokeLineJoin="ROUND"/>
+                        </graphic>
+                    </Button>
                 </HBox>
 
                 <Region prefHeight="8"/>
@@ -126,7 +130,7 @@
                 <!-- Tombol Masuk -->
                 <Button fx:id="btnMasuk" text="Masuk" onAction="#onMasuk"
                         maxWidth="10000" prefHeight="48"
-                        style="-fx-background-color: #2563eb; -fx-text-fill: white;
+                        style="-fx-background-color: #0077cc; -fx-text-fill: white;
                                -fx-background-radius: 10; -fx-font-size: 14px;
                                -fx-font-weight: bold; -fx-cursor: hand;"/>
             </VBox>
@@ -136,11 +140,14 @@
     </VBox>
 
     <!-- Tombol kembali: anchor pojok kiri atas, tidak mengikuti centering -->
-    <Button text="← Kembali ke Kiosk" onAction="#handleKembali"
+    <Button text="" onAction="#handleKembali"
             AnchorPane.topAnchor="20" AnchorPane.leftAnchor="20"
             style="-fx-background-color: transparent;
                    -fx-border-color: transparent;
-                   -fx-text-fill: #2563eb; -fx-font-size: 12px;
-                   -fx-padding: 6 12 6 12; -fx-cursor: hand;"/>
+                   -fx-padding: 8; -fx-cursor: hand;">
+        <graphic>
+            <SVGPath content="M10.5 19.5L3 12m0 0l7.5-7.5M3 12h18" fill="transparent" stroke="#0077cc" strokeWidth="2.5" strokeLineCap="ROUND" strokeLineJoin="ROUND"/>
+        </graphic>
+    </Button>
 
 </AnchorPane>

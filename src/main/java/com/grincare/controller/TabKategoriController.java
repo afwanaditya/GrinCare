@@ -15,7 +15,6 @@ import javafx.scene.layout.HBox;
 
 import java.util.Optional;
 import java.util.UUID;
-import java.util.List;
 
 public class TabKategoriController {
 

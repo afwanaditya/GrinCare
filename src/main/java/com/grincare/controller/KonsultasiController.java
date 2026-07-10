@@ -77,11 +77,19 @@ public class KonsultasiController {
     private void refreshSidebarAntrian() {
         try {
             AntrianQueueService service = new AntrianQueueService();
-            labelNomorAntrian.setText(String.valueOf(service.getNomorBerikutnya()));
-            labelJumlahAntrian.setText(String.valueOf(service.getJumlahAntrianAktif()));
+            int nextNomor = service.getNomorBerikutnya();
+            labelNomorAntrian.setText(String.format("A-%02d", nextNomor));
+            
+            // Hanya hitung antrean aktif hari ini untuk menghindari bug dari data lama
+            String today = java.time.LocalDate.now().format(java.time.format.DateTimeFormatter.ofPattern("yyyyMMdd"));
+            long antrianLagi = service.getAntrianQueue().stream()
+                    .filter(a -> a.getTicketId().contains(today))
+                    .count();
+                    
+            labelJumlahAntrian.setText(String.valueOf(antrianLagi));
         } catch (Exception e) {
             labelNomorAntrian.setText("—");
-            labelJumlahAntrian.setText("—");
+            if (labelJumlahAntrian != null) labelJumlahAntrian.setText("—");
         }
     }
 
@@ -168,28 +176,38 @@ public class KonsultasiController {
 
     @FXML
     private void handleLanjut() {
-        Stage stage = (Stage) keluhanField.getScene().getWindow();
-        DialogAntrian.tampilkanDialogDataPasien(stage, hasilKategori, (nama, noWA) -> {
-            AntrianQueueService service = new AntrianQueueService();
-            Antrian antrian = service.ambilAntrianBaru(nama, noWA, hasilKategori);
-            DialogAntrian.tampilkanDialogKonfirmasi(stage, antrian, () -> {
-                tampilkanToast("✅ Antrian " + antrian.getNoAntrian() + " Diterbitkan");
-                resetHalaman();
-            });
-        });
+        bukaAmbilAntrian(hasilKategori);
     }
 
     @FXML
     private void handleLewati() {
-        Stage stage = (Stage) keluhanField.getScene().getWindow();
-        DialogAntrian.tampilkanDialogDataPasien(stage, "Pemeriksaan Umum", (nama, noWA) -> {
-            AntrianQueueService service = new AntrianQueueService();
-            Antrian antrian = service.ambilAntrianBaru(nama, noWA, "Pemeriksaan Umum");
-            DialogAntrian.tampilkanDialogKonfirmasi(stage, antrian, () -> {
-                tampilkanToast("✅ Antrian " + antrian.getNoAntrian() + " Diterbitkan");
-                resetHalaman();
-            });
-        });
+        bukaAmbilAntrian("Pemeriksaan Umum");
+    }
+
+    private void bukaAmbilAntrian(String kategori) {
+        try {
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/fxml/AmbilAntrian.fxml"));
+            Parent root = loader.load();
+            com.grincare.controller.AmbilAntrianController controller = loader.getController();
+            controller.setKategoriLayanan(kategori);
+
+            Stage popupStage = new Stage();
+            popupStage.initModality(javafx.stage.Modality.APPLICATION_MODAL);
+            popupStage.setTitle("GrinCare - Antrean");
+            popupStage.setResizable(false);
+            
+            // Set size so it fits perfectly
+            popupStage.setScene(new javafx.scene.Scene(root, 700, 600));
+            
+            popupStage.showAndWait();
+            
+            // Setelah popup ditutup (baik batal maupun berhasil antre), refresh halaman
+            resetHalaman();
+            refreshSidebarAntrian();
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
     private void resetHalaman() {
@@ -232,5 +250,4 @@ public class KonsultasiController {
             e.printStackTrace();
         }
     }
-
 }

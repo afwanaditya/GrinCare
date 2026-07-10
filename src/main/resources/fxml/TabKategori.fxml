@@ -2,6 +2,7 @@
 <?import java.lang.String?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Region?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.Button?>
@@ -9,38 +10,43 @@
 <?import javafx.geometry.Insets?>
 
 <VBox spacing="16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.grincare.controller.TabKategoriController">
+      fx:controller="com.grincare.controller.TabKategoriController"
+      style="-fx-background-color: #f9fafb;">
 
     <stylesheets>
         <String fx:value="/css/TabKategori.css"/>
     </stylesheets>
 
-    <padding><Insets top="20" right="20" bottom="20" left="20"/></padding>
+    <padding><Insets top="24" right="32" bottom="24" left="32"/></padding>
 
     <!-- Toolbar -->
-    <HBox style="-fx-alignment: CENTER_LEFT;">
+    <HBox spacing="12" alignment="CENTER_LEFT">
+        <Label text="Kategori Layanan" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
+        <Region HBox.hgrow="ALWAYS" />
         <Button text="+ Tambah Kategori" onAction="#handleTambah"
-                style="-fx-background-color: #2563eb; -fx-text-fill: white;
+                style="-fx-background-color: #0284c7; -fx-text-fill: white;
                        -fx-font-size: 13px; -fx-font-weight: bold;
-                       -fx-background-radius: 8; -fx-border-radius: 8;
+                       -fx-background-radius: 6; -fx-border-radius: 6;
                        -fx-padding: 8 20 8 20; -fx-cursor: hand;"/>
     </HBox>
 
     <!-- Card putih berisi tabel -->
     <VBox VBox.vgrow="ALWAYS"
           style="-fx-background-color: white;
-                 -fx-background-radius: 12;
-                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 2);">
+                 -fx-background-radius: 8;
+                 -fx-border-color: #e5e7eb;
+                 -fx-border-radius: 8;">
 
-        <TableView fx:id="tabelKategori" VBox.vgrow="ALWAYS" fixedCellSize="48">
+        <TableView fx:id="tabelKategori" VBox.vgrow="ALWAYS" fixedCellSize="72">
             <columns>
-                <TableColumn fx:id="colNama"      text="Nama"     prefWidth="180" minWidth="120"/>
-                <TableColumn fx:id="colDeskripsi" text="Deskripsi" prefWidth="400" minWidth="180"/>
-                <TableColumn fx:id="colAksi"      text="Aksi"     prefWidth="160" minWidth="160" maxWidth="160"/>
+                <TableColumn fx:id="colNama"      text="NAMA"     prefWidth="250" minWidth="150"/>
+                <TableColumn fx:id="colDeskripsi" text="DESKRIPSI" prefWidth="570" minWidth="200"/>
+                <TableColumn fx:id="colAksi"      text="AKSI"     prefWidth="160" minWidth="160" maxWidth="160"/>
             </columns>
             <placeholder>
-                <Label text="Belum ada data kategori."/>
+                <Label text="Belum ada data kategori." textFill="#6b7280" />
             </placeholder>
         </TableView>
+
     </VBox>
 </VBox>

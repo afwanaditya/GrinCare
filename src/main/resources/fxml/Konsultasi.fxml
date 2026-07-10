@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
@@ -8,134 +7,132 @@
 <?import javafx.scene.layout.Region?>
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.SVGPath?>
 
-<VBox style="-fx-background-color: #f1f5f9;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="com.grincare.controller.KonsultasiController">
+<VBox style="-fx-background-color: #fafafe;" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/25" fx:controller="com.grincare.controller.KonsultasiController">
 
     <!-- ===== HEADER ===== -->
-    <HBox spacing="16" style="-fx-background-color: white;                  -fx-padding: 16 24 16 24;                  -fx-alignment: CENTER_LEFT;">
-
-        <!-- Teks GrinCare + subjudul (tanpa logo box) -->
+    <HBox spacing="16" style="-fx-background-color: white; -fx-padding: 16 24 16 24; -fx-alignment: CENTER_LEFT; -fx-border-color: transparent transparent #c0c7d3 transparent; -fx-border-width: 1;">
         <VBox spacing="2" style="-fx-alignment: CENTER_LEFT;">
-            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" text="GrinCare" />
-            <Label style="-fx-font-size: 12px; -fx-text-fill: #94a3b8;" text="Solusi Kesehatan Gigi Anda" />
+            <Label style="-fx-font-size: 22px; -fx-font-weight: bold; -fx-text-fill: #222936;" text="GrinCare" />
+            <Label style="-fx-font-size: 12px; -fx-text-fill: #404752;" text="Solusi Kesehatan Gigi Anda" />
         </VBox>
-
         <Region HBox.hgrow="ALWAYS" />
-
-        <!-- Tanggal + jam -->
         <VBox spacing="2" style="-fx-alignment: CENTER_RIGHT;">
-            <Label fx:id="labelTanggal" style="-fx-font-size: 12px; -fx-text-fill: #94a3b8;" text="" />
-            <Label fx:id="labelJam" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" text="" />
+            <Label fx:id="labelTanggal" style="-fx-font-size: 12px; -fx-text-fill: #404752;" text="" />
+            <Label fx:id="labelJam" style="-fx-font-size: 26px; -fx-font-weight: bold; -fx-text-fill: #0077cc;" text="" />
         </VBox>
-
-        <!-- Login Admin (border abu tipis) -->
         <Button onAction="#handleLoginAdmin"
-                style="-fx-background-color: white;                        -fx-border-color: #cbd5e1; -fx-border-radius: 20; -fx-border-width: 1;                        -fx-background-radius: 20;                        -fx-text-fill: #64748b; -fx-font-size: 12px;                        -fx-padding: 6 18 6 18; -fx-cursor: hand;" text="  Login Admin" />
+                style="-fx-background-color: white; -fx-border-color: #c0c7d3; -fx-border-radius: 20; -fx-border-width: 1; -fx-background-radius: 20; -fx-text-fill: #404752; -fx-font-size: 12px; -fx-padding: 6 18 6 18; -fx-cursor: hand;" text="  Login Admin" />
     </HBox>
 
-    <!-- Garis gradient biru di bawah header -->
-    <Region style="-fx-background-color: linear-gradient(from 0% 0% to 100% 0%, #1d4ed8, #38bdf8);                    -fx-min-height: 3; -fx-pref-height: 3; -fx-max-height: 3;" />
-
-<!-- ===== KONTEN UTAMA (2 kolom) ===== -->
-    <HBox spacing="16" style="-fx-padding: 10 24 20 24; -fx-alignment: TOP_LEFT;" VBox.vgrow="ALWAYS">
+    <!-- ===== KONTEN UTAMA (2 kolom) ===== -->
+    <HBox spacing="24" style="-fx-padding: 24 24 24 24; -fx-alignment: TOP_LEFT;" VBox.vgrow="ALWAYS">
 
         <!-- ========== KOLOM KIRI: CHAT CARD ========== -->
-        <VBox style="-fx-background-color: white;                      -fx-background-radius: 16;                      -fx-effect: dropshadow(three-pass-box, #cbd5e1, 10, 0, 0, 2);" HBox.hgrow="ALWAYS">
+        <VBox style="-fx-background-color: white; -fx-background-radius: 16; -fx-border-color: #c0c7d3; -fx-border-radius: 16; -fx-border-width: 1;" HBox.hgrow="ALWAYS">
 
-            <!-- Area pesan chat (tumbuh mengisi sisa tinggi) -->
-            <VBox spacing="14" style="-fx-padding: 20 20 14 20;" VBox.vgrow="ALWAYS">
+            <!-- Card Header -->
+            <VBox style="-fx-padding: 16 24 16 24; -fx-border-color: transparent transparent #c0c7d3 transparent; -fx-border-width: 1;">
+                <Label style="-fx-font-size: 24px; -fx-font-weight: bold; -fx-text-fill: #222936;" text="Jelaskan keluhan Anda" />
+                <Label style="-fx-font-size: 14px; -fx-text-fill: #404752;" text="Chat senatural mungkin — Ginny AI kami akan mencari layanan yang tepat." />
+            </VBox>
 
+            <!-- Area pesan chat -->
+            <VBox spacing="16" style="-fx-padding: 24 24 16 24;" VBox.vgrow="ALWAYS">
                 <!-- Bubble sambutan bot -->
                 <HBox spacing="12" style="-fx-alignment: TOP_LEFT;">
-                    <StackPane style="-fx-background-color: #dbeafe;                                       -fx-background-radius: 21;                                       -fx-min-width: 42; -fx-min-height: 42;                                       -fx-pref-width: 42; -fx-pref-height: 42;                                       -fx-alignment: CENTER;">
-                        <Label style="-fx-font-size: 20px;" text="🤖" />
+                    <StackPane style="-fx-background-color: #e8eeff; -fx-background-radius: 21; -fx-min-width: 42; -fx-min-height: 42; -fx-pref-width: 42; -fx-pref-height: 42; -fx-max-width: 42; -fx-max-height: 42; -fx-alignment: CENTER;">
+                        <SVGPath content="M12 8 V4 H8 M6 8 h12 a2 2 0 0 1 2 2 v8 a2 2 0 0 1 -2 2 H6 a2 2 0 0 1 -2 -2 v-8 a2 2 0 0 1 2 -2 z M2 14 h2 M20 14 h2 M15 13 v2 M9 13 v2" fill="transparent" stroke="#005ea3" strokeWidth="2" strokeLineCap="ROUND" strokeLineJoin="ROUND"/>
                     </StackPane>
                     <VBox spacing="4">
-                        <Label maxWidth="400" style="-fx-background-color: #f1f5f9;                                       -fx-background-radius: 0 12 12 12;                                       -fx-padding: 12 16 12 16;                                       -fx-font-size: 13px; -fx-text-fill: #334155;" text="Selamat datang di Klinik Gigi Sehat. Saya adalah asisten virtual Anda. Silakan pilih keluhan Anda atau ketik pertanyaan." wrapText="true" />
-                        <Label fx:id="labelTimestamp" style="-fx-font-size: 11px; -fx-text-fill: #cbd5e1;" text="" />
+                        <Label maxWidth="450" style="-fx-background-color: #f0f3ff; -fx-background-radius: 0 16 16 16; -fx-padding: 12 16 12 16; -fx-font-size: 14px; -fx-text-fill: #222936; -fx-line-spacing: 0.2em;" text="Selamat datang! Saya Ginny, siap membantu Anda mendapatkan perawatan gigi yang tepat. Apa keluhan yang Anda rasakan hari ini?" wrapText="true" />
+                        <Label fx:id="labelTimestamp" style="-fx-font-size: 11px; -fx-text-fill: #5f6673;" text="" />
                     </VBox>
                 </HBox>
 
-                <!-- Hasil konsultasi Ginny (tersembunyi sampai ada response) -->
+                <!-- Hasil konsultasi Ginny -->
                 <VBox fx:id="panelHasil" managed="false" spacing="10" visible="false">
                     <HBox spacing="12" style="-fx-alignment: TOP_LEFT;">
-                        <StackPane style="-fx-background-color: #dbeafe;                                           -fx-background-radius: 21;                                           -fx-min-width: 42; -fx-min-height: 42;                                           -fx-pref-width: 42; -fx-pref-height: 42;                                           -fx-alignment: CENTER;">
-                            <Label style="-fx-font-size: 20px;" text="🤖" />
+                        <StackPane style="-fx-background-color: #e8eeff; -fx-background-radius: 21; -fx-min-width: 42; -fx-min-height: 42; -fx-pref-width: 42; -fx-pref-height: 42; -fx-max-width: 42; -fx-max-height: 42; -fx-alignment: CENTER;">
+                            <SVGPath content="M12 8 V4 H8 M6 8 h12 a2 2 0 0 1 2 2 v8 a2 2 0 0 1 -2 2 H6 a2 2 0 0 1 -2 -2 v-8 a2 2 0 0 1 2 -2 z M2 14 h2 M20 14 h2 M15 13 v2 M9 13 v2" fill="transparent" stroke="#005ea3" strokeWidth="2" strokeLineCap="ROUND" strokeLineJoin="ROUND"/>
                         </StackPane>
                         <VBox spacing="8" HBox.hgrow="ALWAYS">
-                            <TextArea fx:id="areaEdukasi" editable="false" maxWidth="10000" prefHeight="100" style="-fx-control-inner-background: #f1f5f9;                                              -fx-background-color: #f1f5f9, #f1f5f9;                                              -fx-background-radius: 0 12 12 12;                                              -fx-background-insets: 0;                                              -fx-border-color: transparent; -fx-border-width: 0;                                              -fx-padding: 12 16 12 16;                                              -fx-font-size: 13px; -fx-text-fill: #334155;" wrapText="true" />
-                            <Label fx:id="labelKategoriHasil" style="-fx-font-size: 13px; -fx-font-weight: bold;                                           -fx-text-fill: #15803d; -fx-padding: 6 12 6 12;                                           -fx-background-color: #dcfce7;                                           -fx-border-color: #86efac; -fx-border-width: 1;                                           -fx-border-radius: 6; -fx-background-radius: 6;" />
+                            <TextArea fx:id="areaEdukasi" editable="false" maxWidth="10000" prefHeight="100" style="-fx-control-inner-background: #f0f3ff; -fx-background-color: #f0f3ff, #f0f3ff; -fx-background-radius: 0 16 16 16; -fx-background-insets: 0; -fx-border-color: transparent; -fx-border-width: 0; -fx-padding: 12 16 12 16; -fx-font-size: 14px; -fx-text-fill: #222936;" wrapText="true" />
+                            <Label fx:id="labelKategoriHasil" style="-fx-font-size: 14px; -fx-font-weight: bold; -fx-text-fill: #006c4a; -fx-padding: 8 16 8 16; -fx-background-color: #e8f9f2; -fx-border-color: #19c389; -fx-border-width: 1; -fx-border-radius: 8; -fx-background-radius: 8;" />
                         </VBox>
                     </HBox>
                 </VBox>
 
                 <!-- Loading indicator -->
-                <Label fx:id="labelLoading" managed="false" style="-fx-text-fill: #94a3b8; -fx-font-style: italic; -fx-font-size: 12px;" text="⏳  Ginny sedang menganalisis keluhan Anda..." visible="false" />
-
-                <!-- Error validasi -->
-                <Label fx:id="labelError" style="-fx-text-fill: #dc2626; -fx-font-size: 12px;" text="" />
+                <Label fx:id="labelLoading" managed="false" style="-fx-text-fill: #404752; -fx-font-style: italic; -fx-font-size: 13px;" text="⏳  Ginny sedang menganalisis..." visible="false" />
+                <Label fx:id="labelError" style="-fx-text-fill: #f44444; -fx-font-size: 13px;" text="" />
             </VBox>
 
-            <!-- Pemisah tipis -->
-            <Region style="-fx-background-color: #e2e8f0;                            -fx-min-height: 1; -fx-pref-height: 1; -fx-max-height: 1;" />
+            <!-- Card Footer (Input & Quick Chips) -->
+            <VBox style="-fx-padding: 16 24 16 24; -fx-border-color: #c0c7d3 transparent transparent transparent; -fx-border-width: 1;" spacing="12">
+                <!-- Quick Chips (UI Only) -->
+                <HBox spacing="8" style="-fx-alignment: CENTER_LEFT;">
+                    <Button style="-fx-background-color: #f0f3ff; -fx-border-color: #c0c7d3; -fx-border-radius: 20; -fx-border-width: 1; -fx-background-radius: 20; -fx-text-fill: #005ea3; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 6 16 6 16; -fx-cursor: hand;" text="Sakit Gigi" />
+                    <Button style="-fx-background-color: #f0f3ff; -fx-border-color: #c0c7d3; -fx-border-radius: 20; -fx-border-width: 1; -fx-background-radius: 20; -fx-text-fill: #005ea3; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 6 16 6 16; -fx-cursor: hand;" text="Karang Gigi" />
+                    <Button style="-fx-background-color: #f0f3ff; -fx-border-color: #c0c7d3; -fx-border-radius: 20; -fx-border-width: 1; -fx-background-radius: 20; -fx-text-fill: #005ea3; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 6 16 6 16; -fx-cursor: hand;" text="Gigi Berlubang" />
+                    <Region HBox.hgrow="ALWAYS" />
+                    <Button style="-fx-background-color: transparent; -fx-text-fill: #0077cc; -fx-font-size: 13px; -fx-font-weight: bold; -fx-cursor: hand;" text="Kategori Cepat" />
+                </HBox>
 
-            <!-- Hint + Kategori Cepat -->
-            <HBox spacing="8" style="-fx-padding: 10 20 10 20; -fx-alignment: CENTER_LEFT;">
-                <Label style="-fx-font-size: 12px; -fx-text-fill: #94a3b8;" text="Tidak tahu harus ketik apa?" />
-                <Region HBox.hgrow="ALWAYS" />
-                <Button style="-fx-background-color: #eff6ff;                                -fx-border-color: #93c5fd; -fx-border-radius: 16; -fx-border-width: 1;                                -fx-background-radius: 16;                                -fx-text-fill: #2563eb; -fx-font-size: 11px;                                -fx-padding: 5 14 5 14; -fx-cursor: hand;" text="📋  Kategori Cepat" />
-            </HBox>
-
-            <!-- Input keluhan + Kirim -->
-            <HBox spacing="10" style="-fx-padding: 0 20 14 20; -fx-alignment: CENTER_LEFT;">
-                <TextField fx:id="keluhanField" promptText="Ketik keluhan Anda di sini..." style="-fx-background-color: #f8fafc;                                   -fx-background-radius: 24;                                   -fx-border-color: #e2e8f0; -fx-border-radius: 24; -fx-border-width: 1;                                   -fx-padding: 10 18 10 18; -fx-font-size: 13px;" HBox.hgrow="ALWAYS" />
-                <Button fx:id="btnKirim" onAction="#handleKirim" style="-fx-background-color: #2563eb; -fx-text-fill: white;                                -fx-background-radius: 24; -fx-font-size: 13px; -fx-font-weight: bold;                                -fx-padding: 10 22 10 22; -fx-cursor: hand;" text="✈  Kirim" />
-            </HBox>
-
-            <!-- Tombol aksi bawah card -->
-            <HBox spacing="12" style="-fx-padding: 0 20 20 20;">
-                <!-- Ambil Antrian: abu/disabled sampai AI beri rekomendasi valid -->
-                <Button fx:id="btnLanjut" disable="true" maxWidth="10000" onAction="#handleLanjut" style="-fx-background-color: #e2e8f0; -fx-text-fill: #94a3b8;                                -fx-background-radius: 8; -fx-font-size: 13px;                                -fx-padding: 12 0 12 0;" text="Ambil Nomor Antrian" HBox.hgrow="ALWAYS" />
-                <!-- Lewati: selalu aktif -->
-                <Button maxWidth="10000" onAction="#handleLewati" style="-fx-background-color: white;                                -fx-border-color: #2563eb; -fx-border-radius: 8; -fx-border-width: 1;                                -fx-background-radius: 8;                                -fx-text-fill: #2563eb; -fx-font-size: 13px;                                -fx-padding: 12 0 12 0; -fx-cursor: hand;" text="Lewati &amp; Ambil Antrian Manual" HBox.hgrow="ALWAYS" />
-            </HBox>
-        </VBox>
-
-        <!-- ========== KOLOM KANAN: INFO ANTRIAN ========== -->
-        <VBox spacing="12" style="-fx-min-width: 290; -fx-pref-width: 310; -fx-max-width: 340;">
-
-            <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" text="Informasi Antrian" />
-
-            <!-- Nomor antrian berikutnya (hijau muda) -->
-            <VBox spacing="6" style="-fx-background-color: #f0fdf4; -fx-background-radius: 12;                          -fx-padding: 16 18 16 18;                          -fx-effect: dropshadow(three-pass-box, #d1fae5, 6, 0, 0, 1);">
-                <Label style="-fx-font-size: 12px; -fx-text-fill: #64748b;" text="Nomor Antrian Saat Ini" />
-                <Label fx:id="labelNomorAntrian" style="-fx-font-size: 42px; -fx-font-weight: bold; -fx-text-fill: #2563eb;" text="..." />
-            </VBox>
-
-            <!-- Estimasi waktu tunggu -->
-            <VBox spacing="6" style="-fx-background-color: #f8fafc; -fx-background-radius: 12;                          -fx-padding: 16 18 16 18;                          -fx-effect: dropshadow(three-pass-box, #e2e8f0, 6, 0, 0, 1);">
-                <Label style="-fx-font-size: 12px; -fx-text-fill: #64748b;" text="🕐   Estimasi Waktu Tunggu" />
-                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" text="15-20 menit" />
-            </VBox>
-
-            <!-- Jumlah antrian aktif -->
-            <VBox spacing="6" style="-fx-background-color: #f8fafc; -fx-background-radius: 12;                          -fx-padding: 16 18 16 18;                          -fx-effect: dropshadow(three-pass-box, #e2e8f0, 6, 0, 0, 1);">
-                <Label style="-fx-font-size: 12px; -fx-text-fill: #64748b;" text="👥   Jumlah Antrian Saat Ini" />
-                <Label fx:id="labelJumlahAntrian" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" text="..." />
-            </VBox>
-
-            <!-- Reminder info (biru muda dengan border biru) -->
-            <VBox style="-fx-background-color: #eff6ff;                          -fx-border-color: #93c5fd; -fx-border-width: 1; -fx-border-radius: 12;                          -fx-background-radius: 12; -fx-padding: 14 16 14 16;">
-                <HBox spacing="10" style="-fx-alignment: TOP_LEFT;">
-                    <Label style="-fx-font-size: 16px; -fx-text-fill: #2563eb;" text="ℹ" />
-                    <Label style="-fx-font-size: 12px; -fx-text-fill: #1d4ed8;" text="Harap tunggu nomor Anda dipanggil. Terima kasih atas kesabaran Anda." wrapText="true" />
+                <HBox spacing="12" style="-fx-alignment: CENTER_LEFT;">
+                    <TextField fx:id="keluhanField" promptText="Contoh: Gigi bawah kiri saya ngilu saat minum dingin..." style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: #c0c7d3; -fx-border-radius: 12; -fx-border-width: 2; -fx-padding: 14 18 14 18; -fx-font-size: 14px;" HBox.hgrow="ALWAYS" />
+                    <Button fx:id="btnKirim" onAction="#handleKirim" style="-fx-background-color: #0077cc; -fx-background-radius: 12; -fx-padding: 12 20 12 20; -fx-cursor: hand; -fx-min-width: 60;">
+                        <graphic>
+                            <SVGPath content="M22 2 L15 22 L11 13 L2 9 Z M22 2 L11 13" fill="transparent" stroke="white" strokeWidth="2" strokeLineCap="ROUND" strokeLineJoin="ROUND"/>
+                        </graphic>
+                    </Button>
                 </HBox>
             </VBox>
         </VBox>
+
+        <!-- ========== KOLOM KANAN: SIDEBAR ========== -->
+        <VBox spacing="16" style="-fx-min-width: 320; -fx-pref-width: 340; -fx-max-width: 340;">
+            
+            <!-- Real-time analysis card / Triage Privacy -->
+            <VBox spacing="12" style="-fx-background-color: white; -fx-background-radius: 16; -fx-border-color: #c0c7d3; -fx-border-radius: 16; -fx-border-width: 1; -fx-padding: 20;">
+                <HBox spacing="8" style="-fx-alignment: CENTER_LEFT;">
+                    <SVGPath content="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2-1 4-2 7-2 2.5 0 4.5 1 7 2a1 1 0 0 1 1 1z M9 12 l2 2 l4 -4" fill="transparent" stroke="#19c389" strokeWidth="2" strokeLineCap="ROUND" strokeLineJoin="ROUND" />
+                    <Label style="-fx-font-size: 14px; -fx-text-fill: #404752; -fx-wrap-text: true;" text="Jawaban Anda hanya digunakan untuk penentuan layanan dan tidak akan dibagikan." />
+                </HBox>
+            </VBox>
+
+            <Label style="-fx-font-size: 16px; -fx-font-weight: bold; -fx-text-fill: #222936;" text="Informasi Antrian" />
+
+            <!-- Nomor antrian berikutnya -->
+            <VBox spacing="6" style="-fx-background-color: #f0f3ff; -fx-background-radius: 12; -fx-border-color: #d2e4ff; -fx-border-radius: 12; -fx-border-width: 1; -fx-padding: 16 18 16 18;">
+                <Label style="-fx-font-size: 13px; -fx-text-fill: #404752;" text="Nomor Antrian Saat Ini" />
+                <Label fx:id="labelNomorAntrian" style="-fx-font-size: 42px; -fx-font-weight: bold; -fx-text-fill: #0077cc;" text="..." />
+            </VBox>
+
+            <!-- Estimasi waktu tunggu -->
+            <VBox spacing="6" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: #c0c7d3; -fx-border-radius: 12; -fx-border-width: 1; -fx-padding: 16 18 16 18;">
+                <Label style="-fx-font-size: 13px; -fx-text-fill: #404752;" text="🕐   Estimasi Waktu Tunggu" />
+                <Label style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #222936;" text="15-20 menit" />
+            </VBox>
+
+            <!-- Jumlah antrian aktif -->
+            <VBox spacing="6" style="-fx-background-color: white; -fx-background-radius: 12; -fx-border-color: #c0c7d3; -fx-border-radius: 12; -fx-border-width: 1; -fx-padding: 16 18 16 18;">
+                <Label style="-fx-font-size: 13px; -fx-text-fill: #404752;" text="👥   Jumlah Antrian Saat Ini" />
+                <Label fx:id="labelJumlahAntrian" style="-fx-font-size: 20px; -fx-font-weight: bold; -fx-text-fill: #222936;" text="..." />
+            </VBox>
+
+            <!-- Review & Continue Buttons -->
+            <VBox spacing="12" style="-fx-padding: 8 0 0 0;">
+                <Button fx:id="btnLanjut" disable="true" maxWidth="10000" onAction="#handleLanjut" style="-fx-background-color: #0077cc; -fx-text-fill: white; -fx-background-radius: 12; -fx-font-size: 15px; -fx-font-weight: bold; -fx-padding: 16 0 16 0; -fx-cursor: hand;" text="Ambil Nomor Antrian" HBox.hgrow="ALWAYS" />
+                <Button maxWidth="10000" onAction="#handleLewati" style="-fx-background-color: white; -fx-border-color: #0077cc; -fx-border-radius: 12; -fx-border-width: 2; -fx-background-radius: 12; -fx-text-fill: #0077cc; -fx-font-size: 14px; -fx-font-weight: bold; -fx-padding: 14 0 14 0; -fx-cursor: hand;" text="Lewati &amp; Ambil Antrian Manual" HBox.hgrow="ALWAYS" />
+            </VBox>
+
+        </VBox>
     </HBox>
 
-    <!-- Toast notification (muncul sebentar setelah antrian berhasil dibuat) -->
-    <HBox fx:id="toastBox" managed="false" style="-fx-background-color: #15803d; -fx-padding: 14 24 14 24; -fx-alignment: CENTER;" visible="false">
-        <Label fx:id="labelToast" style="-fx-text-fill: white; -fx-font-size: 14px; -fx-font-weight: bold;" text="" />
+    <!-- Toast notification -->
+    <HBox fx:id="toastBox" managed="false" style="-fx-background-color: #19c389; -fx-padding: 14 24 14 24; -fx-alignment: CENTER;" visible="false">
+        <Label fx:id="labelToast" style="-fx-text-fill: white; -fx-font-size: 15px; -fx-font-weight: bold;" text="" />
     </HBox>
 </VBox>

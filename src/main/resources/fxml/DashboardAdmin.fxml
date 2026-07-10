@@ -81,7 +81,7 @@
         </VBox>
 
         <!-- Tab Statistik -->
-       <VBox fx:id="panelStatistik" visible="false" managed="false">
+        <VBox fx:id="panelStatistik" visible="false" managed="false">
             <fx:include source="TabStatistik.fxml" VBox.vgrow="ALWAYS"/>
         </VBox>
 

@@ -1,0 +1,9 @@
+.root {
+    -fx-font-family: 'Manrope', 'Segoe UI', sans-serif;
+}
+
+.icon {
+    -fx-font-family: 'Material Symbols Outlined';
+    -fx-font-weight: normal;
+    -fx-font-style: normal;
+}
