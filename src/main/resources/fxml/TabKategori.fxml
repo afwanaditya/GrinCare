@@ -10,8 +10,7 @@
 <?import javafx.geometry.Insets?>
 
 <VBox spacing="16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.grincare.controller.TabKategoriController"
-      style="-fx-background-color: #f9fafb;">
+      fx:controller="com.grincare.controller.TabKategoriController">
 
     <stylesheets>
         <String fx:value="/css/TabKategori.css"/>
@@ -33,11 +32,10 @@
     <!-- Card putih berisi tabel -->
     <VBox VBox.vgrow="ALWAYS"
           style="-fx-background-color: white;
-                 -fx-background-radius: 8;
-                 -fx-border-color: #e5e7eb;
-                 -fx-border-radius: 8;">
+                 -fx-background-radius: 12;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 2);">
 
-        <TableView fx:id="tabelKategori" VBox.vgrow="ALWAYS" fixedCellSize="72">
+        <TableView fx:id="tabelKategori" VBox.vgrow="ALWAYS" fixedCellSize="52">
             <columns>
                 <TableColumn fx:id="colNama"      text="NAMA"     prefWidth="250" minWidth="150"/>
                 <TableColumn fx:id="colDeskripsi" text="DESKRIPSI" prefWidth="570" minWidth="200"/>

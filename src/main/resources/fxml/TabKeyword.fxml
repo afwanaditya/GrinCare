@@ -10,8 +10,7 @@
 <?import javafx.geometry.Insets?>
 
 <VBox spacing="16" xmlns:fx="http://javafx.com/fxml/1"
-      fx:controller="com.grincare.controller.TabKeywordController"
-      style="-fx-background-color: #f9fafb;">
+      fx:controller="com.grincare.controller.TabKeywordController">
 
     <stylesheets>
         <String fx:value="/css/TabKategori.css"/>
@@ -23,7 +22,7 @@
     <HBox spacing="12" alignment="CENTER_LEFT">
         <Label text="Kelola Keyword AI (Fallback)" style="-fx-font-size: 18px; -fx-font-weight: bold; -fx-text-fill: #1e293b;" />
         <Region HBox.hgrow="ALWAYS" />
-        <Button text="+ Hubungkan Kata Kunci" onAction="#handleTambah"
+        <Button text="+ Tambahkan Kata Kunci" onAction="#handleTambah"
                 style="-fx-background-color: #0284c7; -fx-text-fill: white;
                        -fx-font-size: 13px; -fx-font-weight: bold;
                        -fx-background-radius: 6; -fx-border-radius: 6;
@@ -33,11 +32,10 @@
     <!-- Card putih berisi tabel -->
     <VBox VBox.vgrow="ALWAYS"
           style="-fx-background-color: white;
-                 -fx-background-radius: 8;
-                 -fx-border-color: #e5e7eb;
-                 -fx-border-radius: 8;">
+                 -fx-background-radius: 12;
+                 -fx-effect: dropshadow(gaussian, rgba(0,0,0,0.06), 10, 0, 0, 2);">
 
-        <TableView fx:id="tabelEdge" VBox.vgrow="ALWAYS" fixedCellSize="72">
+        <TableView fx:id="tabelEdge" VBox.vgrow="ALWAYS" fixedCellSize="52">
             <columns>
                 <TableColumn fx:id="colSource" text="KATA KUNCI ASAL"     prefWidth="250" minWidth="150"/>
                 <TableColumn fx:id="colTarget" text="TUJUAN (KATEGORI)" prefWidth="350" minWidth="200"/>
