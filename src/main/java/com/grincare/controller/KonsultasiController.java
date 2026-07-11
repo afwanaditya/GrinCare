@@ -286,7 +286,7 @@ private void handleKategoriCepat(ActionEvent event) {
 
         stage.initModality(Modality.APPLICATION_MODAL);
 
-        stage.setTitle("Diagnosa Cepat");
+        stage.setTitle("Rekomendasi Layanan");
 
         stage.setScene(new Scene(root));
 

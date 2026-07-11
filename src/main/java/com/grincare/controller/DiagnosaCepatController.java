@@ -95,20 +95,19 @@ public class DiagnosaCepatController implements Initializable {
     }
 
     /**
-     * Menampilkan hasil diagnosa
+     * Menampilkan hasil rekomendasi kategori layanan
      */
 private void tampilkanHasil() {
 
-    String hasil = treeService.getHasilDiagnosa();
+    String kategori = treeService.getHasilRekomendasi();
 
-    System.out.println("HASIL = " + hasil);
+    System.out.println("KATEGORI = " + kategori);
 
-    lblPertanyaan.setText("Diagnosa Sementara");
+    lblPertanyaan.setText("Hasil Rekomendasi");
 
     lblHasil.setText(
-            "Kemungkinan penyakit :\n\n"
-                    + hasil
-                    + "\n\nSilakan lakukan pemeriksaan lebih lanjut di dokter gigi."
+            "Berdasarkan jawaban Anda, kategori layanan yang direkomendasikan:\n\n"
+                    + kategori
     );
 
     btnPilihan1.setVisible(false);
@@ -122,7 +121,7 @@ private void tampilkanHasil() {
 }
 
     /**
-     * Mengulang diagnosa
+     * Mengulang proses tanya-jawab
      */
     @FXML
     private void ulangDiagnosa() {
@@ -141,13 +140,12 @@ private void tampilkanHasil() {
     }
 
     /**
-     * Kirim hasil diagnosa kembali ke parent controller tanpa membuka Ambil Antrian.
+     * Kirim hasil rekomendasi kategori layanan kembali ke parent controller tanpa membuka Ambil Antrian.
      */
     @FXML
     private void ambilAntrian() {
 
-        String hasil = treeService.getHasilDiagnosa();
-        String kategori = mapHasilKeKategori(hasil);
+        String kategori = treeService.getHasilRekomendasi();
 
         if (parentController != null) {
             parentController.setHasilDiagnosa(kategori);
@@ -164,26 +162,6 @@ private void tampilkanHasil() {
         );
         alert.showAndWait();
 
-    }
-
-    private String mapHasilKeKategori(String hasilDiagnosa) {
-        if (hasilDiagnosa == null) {
-            return "Pemeriksaan Umum";
-        }
-
-        switch (hasilDiagnosa.trim()) {
-            case "Karang Gigi":
-                return "Scaling";
-            case "Karies Ringan":
-            case "Gingivitis":
-                return "Tambal Gigi";
-            case "Gigi Sensitif":
-                return "Konsultasi";
-            case "Pemeriksaan Umum":
-                return "Pemeriksaan Umum";
-            default:
-                return "Pemeriksaan Umum";
-        }
     }
 
     private KonsultasiController parentController;

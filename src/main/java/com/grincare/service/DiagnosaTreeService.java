@@ -84,47 +84,61 @@ public class DiagnosaTreeService {
     // ==========================
     private void bangunTree() {
 
-        // Root
-        root = new Node("Apakah gigi Anda terasa sakit?");
+        // Root: menentukan cabang utama (Sakit/Nyeri vs Tujuan Kunjungan Lain)
+        root = new Node("Apakah gigi atau gusi Anda saat ini terasa sakit atau nyeri?");
 
-        // Pertanyaan
-        Node lubang = new Node("Apakah terdapat lubang pada gigi?");
-        Node gusi = new Node("Apakah gusi Anda berdarah?");
-        Node sensitif = new Node("Apakah gigi terasa ngilu saat minum dingin?");
-        Node karang = new Node("Apakah terdapat karang gigi?");
+        // ================= Cabang 1: Sakit / Nyeri =================
+        Node sakitPenyebab = new Node(
+                "Apakah rasa sakit disebabkan oleh gigi berlubang atau gusi yang bengkak/berdarah?");
+        Node sakitBehel = new Node(
+                "Apakah nyeri tersebut muncul di area gigi yang sedang memakai kawat gigi/behel?");
 
-        // Hasil
-        Node kariesRingan =
-                new Node("", "Karies Ringan");
+        // ================= Cabang penentu Perawatan Rutin vs Konsultasi Estetika =================
+        Node tujuanKunjungan = new Node(
+                "Apakah tujuan kunjungan Anda untuk perawatan rutin (bukan karena sakit)?");
 
-        Node gingivitis =
-                new Node("", "Gingivitis");
+        // ================= Cabang 2: Perawatan Rutin =================
+        Node rutinKarang = new Node(
+                "Apakah Anda ingin membersihkan karang gigi atau plak yang menumpuk?");
+        Node rutinBehel = new Node(
+                "Apakah Anda sedang menjalani perawatan behel/kawat gigi dan perlu kontrol berkala?");
 
-        Node gigiSensitif =
-                new Node("", "Gigi Sensitif");
+        // ================= Cabang 3: Konsultasi Estetika =================
+        Node estetika = new Node(
+                "Apakah Anda tertarik dengan perawatan estetika gigi seperti whitening atau veneer?");
 
-        Node scaling =
-                new Node("", "Karang Gigi");
-
-        Node pemeriksaan =
-                new Node("", "Pemeriksaan Umum");
+        // ================= Leaf: 4 kategori layanan final =================
+        Node pemeriksaanUmum1 = new Node("", "Pemeriksaan Umum");
+        Node kontrol1 = new Node("", "Kontrol");
+        Node pemeriksaanUmum2 = new Node("", "Pemeriksaan Umum");
+        Node scaling = new Node("", "Scaling");
+        Node kontrol2 = new Node("", "Kontrol");
+        Node pemeriksaanUmum3 = new Node("", "Pemeriksaan Umum");
+        Node konsultasiEstetika = new Node("", "Konsultasi Estetika");
+        Node pemeriksaanUmum4 = new Node("", "Pemeriksaan Umum");
 
         // Hubungan Tree
 
-        root.tambahPilihan("Ya", lubang);
-        root.tambahPilihan("Tidak", karang);
+        root.tambahPilihan("Ya", sakitPenyebab);
+        root.tambahPilihan("Tidak", tujuanKunjungan);
 
-        lubang.tambahPilihan("Ya", sensitif);
-        lubang.tambahPilihan("Tidak", gusi);
+        sakitPenyebab.tambahPilihan("Ya", pemeriksaanUmum1);
+        sakitPenyebab.tambahPilihan("Tidak", sakitBehel);
 
-        sensitif.tambahPilihan("Ya", gigiSensitif);
-        sensitif.tambahPilihan("Tidak", kariesRingan);
+        sakitBehel.tambahPilihan("Ya", kontrol1);
+        sakitBehel.tambahPilihan("Tidak", pemeriksaanUmum2);
 
-        gusi.tambahPilihan("Ya", gingivitis);
-        gusi.tambahPilihan("Tidak", pemeriksaan);
+        tujuanKunjungan.tambahPilihan("Ya", rutinKarang);
+        tujuanKunjungan.tambahPilihan("Tidak", estetika);
 
-        karang.tambahPilihan("Ya", scaling);
-        karang.tambahPilihan("Tidak", pemeriksaan);
+        rutinKarang.tambahPilihan("Ya", scaling);
+        rutinKarang.tambahPilihan("Tidak", rutinBehel);
+
+        rutinBehel.tambahPilihan("Ya", kontrol2);
+        rutinBehel.tambahPilihan("Tidak", pemeriksaanUmum3);
+
+        estetika.tambahPilihan("Ya", konsultasiEstetika);
+        estetika.tambahPilihan("Tidak", pemeriksaanUmum4);
 
     }
 
@@ -184,14 +198,14 @@ public class DiagnosaTreeService {
     }
 
     // ==========================
-    // Mengambil Hasil Diagnosa
+    // Mengambil Hasil Rekomendasi Kategori Layanan
     // ==========================
-    public String getHasilDiagnosa() {
+    public String getHasilRekomendasi() {
         return currentNode.getHasil();
     }
 
     // ==========================
-    // Mengulang Diagnosa
+    // Mengulang Proses Tanya-Jawab
     // ==========================
     public void reset() {
         currentNode = root;
