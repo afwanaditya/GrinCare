@@ -77,7 +77,7 @@
                     <Button style="-fx-background-color: #f0f3ff; -fx-border-color: #c0c7d3; -fx-border-radius: 20; -fx-border-width: 1; -fx-background-radius: 20; -fx-text-fill: #005ea3; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 6 16 6 16; -fx-cursor: hand;" text="Karang Gigi" />
                     <Button style="-fx-background-color: #f0f3ff; -fx-border-color: #c0c7d3; -fx-border-radius: 20; -fx-border-width: 1; -fx-background-radius: 20; -fx-text-fill: #005ea3; -fx-font-size: 13px; -fx-font-weight: bold; -fx-padding: 6 16 6 16; -fx-cursor: hand;" text="Gigi Berlubang" />
                     <Region HBox.hgrow="ALWAYS" />
-                    <Button style="-fx-background-color: transparent; -fx-text-fill: #0077cc; -fx-font-size: 13px; -fx-font-weight: bold; -fx-cursor: hand;" text="Kategori Cepat" />
+                    <Button onAction="#handleKategoriCepat" style="-fx-background-color: transparent; -fx-text-fill: #0077cc; -fx-font-size: 13px; -fx-font-weight: bold; -fx-cursor: hand;" text="Kategori Cepat" />
                 </HBox>
 
                 <HBox spacing="12" style="-fx-alignment: CENTER_LEFT;">

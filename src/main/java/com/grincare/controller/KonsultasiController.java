@@ -1,11 +1,16 @@
 package com.grincare.controller;
 
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.stage.Stage;
+
 import com.grincare.model.Antrian;
 import com.grincare.service.AntrianQueueService;
 import com.grincare.service.GeminiService;
 import com.grincare.service.GeminiService.GeminiResult;
 import com.grincare.util.KeywordGraph;
 
+import javafx.event.ActionEvent;
 import javafx.animation.FadeTransition;
 import javafx.concurrent.Task;
 import javafx.fxml.FXML;
@@ -17,8 +22,13 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
+import javafx.scene.Scene;
 import javafx.stage.Stage;
 import javafx.util.Duration;
+import javafx.event.ActionEvent;
+import javafx.scene.Scene;
+import javafx.stage.Modality;
+
 
 import java.time.LocalDate;
 import java.time.LocalTime;
@@ -162,6 +172,23 @@ public class KonsultasiController {
         btnLanjut.setStyle(STYLE_BTN_AKTIF);
     }
 
+    public void setHasilDiagnosa(String kategori) {
+        hasilKategori = kategori;
+
+        labelKategoriHasil.setText(
+                "Rekomendasi layanan: " + kategori);
+
+        labelKategoriHasil.setVisible(true);
+        labelKategoriHasil.setManaged(true);
+
+        panelHasil.setVisible(true);
+        panelHasil.setManaged(true);
+
+        btnLanjut.setDisable(false);
+
+        btnLanjut.setStyle(STYLE_BTN_AKTIF);
+    }
+
     private void setLoading(boolean loading) {
         btnKirim.setDisable(loading);
         labelLoading.setVisible(loading);
@@ -239,6 +266,41 @@ public class KonsultasiController {
         });
         fade.play();
     }
+
+  @FXML
+private void handleKategoriCepat(ActionEvent event) {
+
+    try {
+
+        FXMLLoader loader = new FXMLLoader(
+                getClass().getResource("/fxml/DiagnosaCepat.fxml"));
+
+        Parent root = loader.load();
+
+        DiagnosaCepatController controller =
+                loader.getController();
+
+        controller.setParentController(this);
+
+        Stage stage = new Stage();
+
+        stage.initModality(Modality.APPLICATION_MODAL);
+
+        stage.setTitle("Diagnosa Cepat");
+
+        stage.setScene(new Scene(root));
+
+        stage.setResizable(false);
+
+        stage.showAndWait();
+
+    } catch (Exception e) {
+
+        e.printStackTrace();
+
+    }
+
+}
 
     @FXML
     private void handleLoginAdmin() {

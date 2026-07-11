@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<VBox xmlns:fx="http://javafx.com/fxml"
+      fx:controller="com.grincare.controller.DiagnosaCepatController"
+      spacing="20"
+      alignment="TOP_CENTER"
+      style="-fx-background-color:#f8fafc;">
+
+    <padding>
+        <Insets top="25" right="25" bottom="25" left="25"/>
+    </padding>
+
+    <!-- Header -->
+
+    <VBox spacing="8" alignment="CENTER">
+
+        <Label text="Diagnosa Cepat Mandiri"
+               style="-fx-font-size:28px;
+                      -fx-font-weight:bold;
+                      -fx-text-fill:#0f172a;"/>
+
+        <Label text="Jawab beberapa pertanyaan berikut untuk membantu menentukan layanan yang sesuai."
+               wrapText="true"
+               alignment="CENTER"
+               style="-fx-font-size:14px;
+                      -fx-text-fill:#64748b;"/>
+
+    </VBox>
+
+    <Separator/>
+
+    <!-- Card Pertanyaan -->
+
+    <VBox spacing="25"
+          alignment="CENTER"
+          prefWidth="620"
+          style="-fx-background-color:white;
+                 -fx-background-radius:15;
+                 -fx-border-radius:15;
+                 -fx-border-color:#dbeafe;
+                 -fx-padding:30;">
+
+        <Label fx:id="lblPertanyaan"
+               text="Memuat pertanyaan..."
+               wrapText="true"
+               alignment="CENTER"
+               style="-fx-font-size:22px;
+                      -fx-font-weight:bold;
+                      -fx-text-fill:#1e293b;"/>
+
+        <HBox spacing="20"
+              alignment="CENTER">
+
+            <Button fx:id="btnPilihan1"
+                    text="Ya"
+                    onAction="#pilihPertama"
+                    prefWidth="170"
+                    prefHeight="45"
+                    style="-fx-background-color:#2563eb;
+                           -fx-text-fill:white;
+                           -fx-font-size:15;
+                           -fx-font-weight:bold;
+                           -fx-background-radius:12;"/>
+
+            <Button fx:id="btnPilihan2"
+                    text="Tidak"
+                    onAction="#pilihKedua"
+                    prefWidth="170"
+                    prefHeight="45"
+                    style="-fx-background-color:white;
+                           -fx-border-color:#2563eb;
+                           -fx-border-radius:12;
+                           -fx-background-radius:12;
+                           -fx-text-fill:#2563eb;
+                           -fx-font-size:15;
+                           -fx-font-weight:bold;"/>
+
+        </HBox>
+
+    </VBox>
+
+    <!-- Card Hasil -->
+
+    <VBox spacing="15"
+          prefWidth="620"
+          style="-fx-background-color:#eff6ff;
+                 -fx-border-color:#bfdbfe;
+                 -fx-border-radius:15;
+                 -fx-background-radius:15;
+                 -fx-padding:20;">
+
+        <Label text="HASIL DIAGNOSA SEMENTARA"
+               style="-fx-font-size:15;
+                      -fx-font-weight:bold;
+                      -fx-text-fill:#1d4ed8;"/>
+
+        <Label fx:id="lblHasil"
+               text=""
+               wrapText="true"
+               prefWidth="560"
+               prefHeight="120"
+               style="-fx-font-size:15;
+                      -fx-text-fill:#1e293b;
+                      -fx-line-spacing:4;"/>
+
+    </VBox>
+
+    <!-- Tombol -->
+
+    <HBox spacing="20"
+          alignment="CENTER_RIGHT">
+
+        <Button fx:id="btnUlang"
+                text="Ulangi Diagnosa"
+                onAction="#ulangDiagnosa"
+                prefWidth="170"
+                prefHeight="42"
+                visible="false"
+                managed="false"
+                style="-fx-background-color:white;
+                       -fx-border-color:#94a3b8;
+                       -fx-background-radius:10;
+                       -fx-border-radius:10;
+                       -fx-font-weight:bold;"/>
+
+        <Button text="Ambil Nomor Antrian"
+                onAction="#ambilAntrian"
+                prefWidth="220"
+                prefHeight="42"
+                style="-fx-background-color:#2563eb;
+                       -fx-text-fill:white;
+                       -fx-font-size:15;
+                       -fx-font-weight:bold;
+                       -fx-background-radius:10;"/>
+
+    </HBox>
+
+</VBox>
