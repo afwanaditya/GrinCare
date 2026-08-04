@@ -118,7 +118,7 @@ JavaFX (FXML)
 Clone repository.
 
 ```bash
-git clone https://github.com/username/grincare.git
+git clone https://github.com/afwanaditya/grincare.git
 ```
 
 Buka project menggunakan IDE.
@@ -150,10 +150,10 @@ src/
 
 Team BebasKataLala
 
-- Afwan Aditya Saputra
-- Ahmad Dani Maulana
-- Muhammad Pramudya Aldiansyah
-- Khalisa Zahra Yulismar
+- Afwan Aditya Saputra (Project Manager)
+- Ahmad Dani Maulana (Hacker)
+- Muhammad Pramudya Aldiansyah (Hipster)
+- Khalisa Zahra Yulismar (Hustler)
 
 ---
 
