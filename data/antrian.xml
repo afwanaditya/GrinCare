@@ -76,7 +76,7 @@
     <nama>akdj</nama>
     <noWhatsApp>089525238287</noWhatsApp>
     <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
-    <status>MENUNGGU</status>
+    <status>SELESAI</status>
     <waktuDibuat>2026-07-03 17:47:17</waktuDibuat>
     <statusKirimWA>TERKIRIM</statusKirimWA>
   </tiket>
@@ -86,7 +86,7 @@
     <nama>azam</nama>
     <noWhatsApp>082184066123</noWhatsApp>
     <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
-    <status>MENUNGGU</status>
+    <status>SELESAI</status>
     <waktuDibuat>2026-07-03 17:48:15</waktuDibuat>
     <statusKirimWA>TERKIRIM</statusKirimWA>
   </tiket>
@@ -96,7 +96,7 @@
     <nama>adhab</nama>
     <noWhatsApp>082184066123</noWhatsApp>
     <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
-    <status>MENUNGGU</status>
+    <status>SELESAI</status>
     <waktuDibuat>2026-07-03 17:48:48</waktuDibuat>
     <statusKirimWA>TERKIRIM</statusKirimWA>
   </tiket>
@@ -146,7 +146,7 @@
     <nama>adit</nama>
     <noWhatsApp>089525238287</noWhatsApp>
     <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
-    <status>MENUNGGU</status>
+    <status>DIPANGGIL</status>
     <waktuDibuat>2026-07-03 19:02:10</waktuDibuat>
     <statusKirimWA>TERKIRIM</statusKirimWA>
   </tiket>
@@ -226,7 +226,7 @@
     <nama>dani</nama>
     <noWhatsApp/>
     <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
-    <status>MENUNGGU</status>
+    <status>SELESAI</status>
     <waktuDibuat>2026-07-07 21:37:31</waktuDibuat>
     <statusKirimWA>TIDAK_ADA</statusKirimWA>
   </tiket>
@@ -236,7 +236,7 @@
     <nama>wow</nama>
     <noWhatsApp/>
     <kategoriLayanan>Scaling</kategoriLayanan>
-    <status>MENUNGGU</status>
+    <status>SELESAI</status>
     <waktuDibuat>2026-07-07 21:39:04</waktuDibuat>
     <statusKirimWA>TIDAK_ADA</statusKirimWA>
   </tiket>
@@ -249,5 +249,55 @@
     <status>MENUNGGU</status>
     <waktuDibuat>2026-07-10 22:27:03</waktuDibuat>
     <statusKirimWA>GAGAL</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260714-001</ticketId>
+    <noAntrian>A-01</noAntrian>
+    <nama>adit</nama>
+    <noWhatsApp>089525238287</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-14 08:38:42</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260714-002</ticketId>
+    <noAntrian>A-02</noAntrian>
+    <nama>al</nama>
+    <noWhatsApp>082134534003</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-14 08:41:55</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260714-003</ticketId>
+    <noAntrian>A-03</noAntrian>
+    <nama>adit</nama>
+    <noWhatsApp>089525238287</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-14 08:51:49</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260714-004</ticketId>
+    <noAntrian>A-04</noAntrian>
+    <nama>shinji</nama>
+    <noWhatsApp>0988765443</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-14 09:14:12</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
+  </tiket>
+  <tiket>
+    <ticketId>TKT-20260714-005</ticketId>
+    <noAntrian>A-05</noAntrian>
+    <nama>raka</nama>
+    <noWhatsApp>08134444444</noWhatsApp>
+    <kategoriLayanan>Pemeriksaan Umum</kategoriLayanan>
+    <status>MENUNGGU</status>
+    <waktuDibuat>2026-07-14 10:01:13</waktuDibuat>
+    <statusKirimWA>TERKIRIM</statusKirimWA>
   </tiket>
 </antrian>
