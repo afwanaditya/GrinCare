@@ -106,7 +106,7 @@ Sebelum menjalankan aplikasi, pastikan telah tersedia:
 ### 1. Clone Repository
 
 ```bash
-git clone https://github.com/username/GrinCare.git
+git clone https://github.com/afwanaditya/GrinCare.git
 ```
 
 ### 2. Buka Proyek
