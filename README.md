@@ -159,4 +159,4 @@ Team BebasKataLala
 
 ## Lisensi
 
-Proyek ini dikembangkan untuk keperluan akademik pada mata kuliah **Fundamen Pengembangan Aplikasi, Algoritma dan Struktur Data, Dan Rekayasa Preangkat Lunak**, Program Studi Informatika, Universitas Islam Indonesia.
+Proyek ini dikembangkan untuk keperluan akademik pada mata kuliah **Fundamen Pengembangan Aplikasi, Algoritma dan Struktur Data, Dan Rekayasa Perangkat Lunak**, Program Studi Informatika, Universitas Islam Indonesia.
